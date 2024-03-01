@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, LoginImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, Checkbox, SocialIconsContainer, SubmitButton, CheckboxLabel, SignUpLink, SignUpText } from "../components/Login.styles"
+import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, LoginImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, Checkbox, SocialIconsContainer, SubmitButton, CheckboxLabel, SignUpLink, SignUpText, SocialIcons, SocialIconsLink } from "../components/Login.styles"
 import { Link } from "react-router-dom";
 
 const FormWrapper = styled.div`
@@ -46,9 +46,12 @@ const Login: React.FC = () => {
                         <Divider>Or sign in with</Divider>
 
                         <SocialIconsContainer>
-                            <img src="/path-to-facebook-icon.png" alt="Facebook" />
-                            <img src="/path-to-google-icon.png" alt="Google" />
-                            <img src="/path-to-twitter-icon.png" alt="Twitter" />
+                            <SocialIconsLink href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                <SocialIcons src="../FB.png" alt="Facebook" />
+                            </SocialIconsLink>
+                            <SocialIconsLink href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                                <SocialIcons src="../mail.png" alt="Google" />
+                            </SocialIconsLink>
                         </SocialIconsContainer>
                     </form>
                         <SignUpText>Don't have an account?</SignUpText>

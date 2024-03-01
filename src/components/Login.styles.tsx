@@ -199,12 +199,24 @@ export const Divider = styled.div`
   }
 `;
 
+export const SocialIcons = styled.img`
+  width: 40px;  // Set the fixed width
+  height: 40px; // Set the fixed height
+  object-fit: contain; // This will ensure the image maintains its aspect ratio without stretching
+`;
+
+export const SocialIconsLink = styled.a`
+  display: inline-block; // This allows the width and height to affect the anchor element
+  margin: 0 8px; // Add some space between the icons
+  // Any other styling you want to apply to the links
+`;
+
 export const SocialIconsContainer = styled.div`
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
-  gap: 15px; // Space between icons;
+  gap: 35px; // Space between icons;
   @media (max-width: ${breakpoints.tablet}) {
 
   };
