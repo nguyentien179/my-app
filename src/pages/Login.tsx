@@ -25,7 +25,7 @@ const Login: React.FC = () => {
         <LoginPageContainer>
             <ImageContainer />
             <LoginFormContainer>
-                <Logo src="/path-to-your-logo.png" alt="Logo" /> {/* Replace with your logo path */}
+                <Logo src="../assets/logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
                     <form>
                         <Label htmlFor="email">Email address</Label>
                         <Input type="email" id="email" name="email" placeholder="Enter your email" required />

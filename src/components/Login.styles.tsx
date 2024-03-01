@@ -2,26 +2,30 @@ import styled from 'styled-components';
 
 export const LoginPageContainer =  styled.div`
     height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 `;
 
 export const LoginFormContainer = styled.div`
     width: 350px; // Adjust the width according to your design
     padding: 2rem;
+    margin-left: auto;
     background: rgba(0, 0, 0, 0.75); // This gives a semi-transparent background
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
 `;
 export const ImageContainer = styled.div`
-    background-image: url('./assets/Pics/Login.jpg');
+    background-image: src={'../assets/login.jpg'};
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
     width: 50%; // Take up half of the container width
     height: 100vh;
+    flex-shrink: 0;
 `
-
 export const Logo = styled.img`
     display: block;
     margin: 0 auto 2rem auto; // Center the logo and add some margin at the bottom

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import StyledInput from '../components/StyledInput';
 import Button from '../components/StyledButton';
+import { Link } from 'react-router-dom';
+import { LoginPageContainer, ImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink } from '../components/Login.styles';
 
 const Register: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -24,39 +26,71 @@ const Register: React.FC = () => {
     };
   
     return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <StyledInput
-            type="text"
-            name="fullName"
-            placeholder="Full name"
-            value={formData.fullName}
-            onChange={handleChange}
-          />
-          <StyledInput
-            type="email"
-            name="email"
-            placeholder="Email address"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <StyledInput
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          <StyledInput
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-          />
-          <Button type="submit">Sign Up</Button>
-        </form>
-      </div>
+      <LoginPageContainer>
+        <ImageContainer />
+        <LoginFormContainer>
+            <Logo src="/path-to-your-logo.png" alt="Logo" /> {/* Replace with your logo path */}
+                <form>
+                    <Label htmlFor="fullName">Full Name</Label>
+                    <Input type="fullName" id="fullName" name="fullName" placeholder="Enter full name" required />                    
+                    <Label htmlFor="email">Email address</Label>
+                    <Input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+                    <Label htmlFor="password">Password</Label>
+                    <Input type="password" id="password" name="password" placeholder="Enter your password" required />
+                    <Label htmlFor="confirmPassword">Password Again</Label>
+                    <Input type="confirmPassword" id="confirmPassword" name="confirmPassword" placeholder="Enter your password again" required />
+
+                    <SubmitButton type="submit">Create Account</SubmitButton>
+
+                    <Divider />
+
+                    <SocialIconsContainer>
+                        <img src="/path-to-facebook-icon.png" alt="Facebook" />
+                        <img src="/path-to-google-icon.png" alt="Google" />
+                        <img src="/path-to-twitter-icon.png" alt="Twitter" />
+                    </SocialIconsContainer>
+                </form>
+
+        <FooterLinksContainer>
+            <FooterLink as={Link} to="../register">Sign up</FooterLink>
+            <FooterLink href="#">Contact</FooterLink>
+        </FooterLinksContainer>
+        </LoginFormContainer>
+      </LoginPageContainer>
+      // <div>
+      //   <form onSubmit={handleSubmit}>
+      //     <StyledInput
+      //       type="text"
+      //       name="fullName"
+      //       placeholder="Full name"
+      //       value={formData.fullName}
+      //       onChange={handleChange}
+      //     />
+      //     <StyledInput
+      //       type="email"
+      //       name="email"
+      //       placeholder="Email address"
+      //       value={formData.email}
+      //       onChange={handleChange}
+      //     />
+      //     <StyledInput
+      //       type="password"
+      //       name="password"
+      //       placeholder="Password"
+      //       value={formData.password}
+      //       onChange={handleChange}
+      //     />
+      //     <StyledInput
+      //       type="password"
+      //       name="confirmPassword"
+      //       placeholder="Confirm Password"
+      //       value={formData.confirmPassword}
+      //       onChange={handleChange}
+      //     />
+      //     <Button type="submit">Sign Up</Button>
+      //   </form>
+      // </div>
     );
   };
   
