@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, LoginImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, Checkbox, SocialIconsContainer, SubmitButton, CheckboxLabel } from "../components/Login.styles"
+import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, LoginImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, Checkbox, SocialIconsContainer, SubmitButton, CheckboxLabel, SignUpLink, SignUpText } from "../components/Login.styles"
 import { Link } from "react-router-dom";
 
 const FormWrapper = styled.div`
@@ -51,9 +51,9 @@ const Login: React.FC = () => {
                             <img src="/path-to-twitter-icon.png" alt="Twitter" />
                         </SocialIconsContainer>
                     </form>
-
+                        <SignUpText>Don't have an account?</SignUpText>
+                        <SignUpLink href="/register">Sign up</SignUpLink>
             <FooterLinksContainer>
-                <FooterLink as={Link} to="../register">Sign up</FooterLink>
                 <FooterLink href="#">Contact</FooterLink>
             </FooterLinksContainer>
             </LoginFormContainer>

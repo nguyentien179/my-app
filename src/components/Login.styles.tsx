@@ -201,6 +201,7 @@ export const Divider = styled.div`
 
 export const SocialIconsContainer = styled.div`
   margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   gap: 15px; // Space between icons;
@@ -212,9 +213,23 @@ export const SocialIconsContainer = styled.div`
   }
 `;
 
+export const SignUpText = styled.span`
+  color: #fff; // Or your theme's text color
+  margin-right: 5px;
+`;
+
+export const SignUpLink = styled.a`
+  color: #005800; // Or your theme's button color
+  text-decoration: none; // Remove underline from the link
+
+  &:hover {
+    color: #017501; // Add underline on hover for better UX
+  }
+`;
+
 export const FooterLinksContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 20px;
   @media (max-width: ${breakpoints.tablet}) {
 
