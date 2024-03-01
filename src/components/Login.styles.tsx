@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import login from '../assets/login.jpg';
+import register from '../assets/register.avif';
+
+export const breakpoints = {
+  tablet: '768px',
+  mobile: '480px'
+}
 
 export const LoginPageContainer =  styled.div`
     height: 100vh;
@@ -6,35 +13,61 @@ export const LoginPageContainer =  styled.div`
     align-items: center;
     justify-content: center;
     width: 100vw;
+    @media (max-width: ${breakpoints.tablet}) {
+
+    };
+    @media (max-width: ${breakpoints.mobile}) {
+      
+    }
 `;
 
 export const LoginFormContainer = styled.div`
     width: 350px; // Adjust the width according to your design
     padding: 2rem;
     margin-left: auto;
+    margin-right: auto;
     background: rgba(0, 0, 0, 0.75); // This gives a semi-transparent background
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
+    @media (max-width: ${breakpoints.tablet}) {
+
+    };
+    @media (max-width: ${breakpoints.mobile}) {
+      
+    }
 `;
+
 export const RegImageContainer = styled.div`
-    background-image: url('/assets/register.avif');
+    background-image: url(${register});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
     width: 50%; // Take up half of the container width
     height: 100vh;
     flex-shrink: 0;
+    @media (max-width: ${breakpoints.tablet}) {
+
+    };
+    @media (max-width: ${breakpoints.mobile}) {
+      
+    }
 `
 
 export const LoginImageContainer = styled.div`
-    background-image: url('/assets/login.jpg');
+    background-image: url(${login});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
     width: 50%; // Take up half of the container width
     height: 100vh;
     flex-shrink: 0;
+    @media (max-width: ${breakpoints.tablet}) {
+
+    };
+    @media (max-width: ${breakpoints.mobile}) {
+      
+    }
 `
 
 export const Logo = styled.img`
@@ -56,6 +89,12 @@ export const Input = styled.input`
     outline: none;
     border-color: #0f0; // Or your theme's focus color
   }
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
+  }
 `;
 
 export const Label = styled.label`
@@ -63,6 +102,12 @@ export const Label = styled.label`
   display: block;
   margin-top: 20px;
   margin-bottom: 5px;
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
+  }
 `;
 
 export const CheckboxContainer = styled.div`
@@ -70,19 +115,44 @@ export const CheckboxContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 10px;
+  margin-bottom: 1rem
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
+  }
 `;
 
-export const RememberMeCheckbox = styled.input`
+export const Checkbox = styled.input`
   color: #fff;
-  margin-right: 5px;
+  margin-right: 0.5rem;
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
+  }
+`;
+
+export const CheckboxLabel = styled.label`
+  font-size: 0.6rem;
+  margin: 0; // Remove any default margin
 `;
 
 export const ForgotPasswordLink = styled.a`
+  font-size: 0.6rem;
   color: white;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
     color: #1bca00
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
   }
 `;
 
@@ -98,25 +168,60 @@ export const SubmitButton = styled.button`
   &:hover {
     background-color: #005800; // Slightly darker variant for hover state
   }
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
+  }
 `;
 
-export const Divider = styled.hr`
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
-  margin: 20px 0;
+export const Divider = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #fff; // Adjust the color to fit your design
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #fff; // Adjust the color to fit your design
+    margin: 0 10px; // Space between the lines and the text
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    // Adjust styling for tablet if necessary
+  }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    // Adjust styling for mobile if necessary
+  }
 `;
 
 export const SocialIconsContainer = styled.div`
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 10px; // Space between icons
+  gap: 15px; // Space between icons;
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
+  }
 `;
 
 export const FooterLinksContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
+  }
 `;
 
 export const FooterLink = styled.a`
@@ -124,6 +229,12 @@ export const FooterLink = styled.a`
   text-decoration: none;
   &:hover {
     text-decoration: underline;
+  };
+  @media (max-width: ${breakpoints.tablet}) {
+
+  };
+  @media (max-width: ${breakpoints.mobile}) {
+    
   }
 `;
 

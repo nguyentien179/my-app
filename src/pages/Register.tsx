@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import StyledInput from '../components/StyledInput';
-import Button from '../components/StyledButton';
 import { Link } from 'react-router-dom';
 import { LoginPageContainer, RegImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink } from '../components/Login.styles';
 
@@ -29,7 +27,7 @@ const Register: React.FC = () => {
       <LoginPageContainer>
         <RegImageContainer />
         <LoginFormContainer>
-            <Logo src="/path-to-your-logo.png" alt="Logo" /> {/* Replace with your logo path */}
+            <Logo src="../assets/logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
                 <form>
                     <Label htmlFor="fullName">Full Name</Label>
                     <Input type="fullName" id="fullName" name="fullName" placeholder="Enter full name" required />                    
@@ -53,7 +51,7 @@ const Register: React.FC = () => {
                 </form>
 
         <FooterLinksContainer>
-            <FooterLink as={Link} to="../register">Sign up</FooterLink>
+            <FooterLink as={Link} to="../login">Sign in</FooterLink>
             <FooterLink href="#">Contact</FooterLink>
         </FooterLinksContainer>
         </LoginFormContainer>
