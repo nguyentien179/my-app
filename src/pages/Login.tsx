@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, ImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, RememberMeCheckbox, SocialIconsContainer, SubmitButton } from "../components/Login.styles"
+import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, LoginImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, RememberMeCheckbox, SocialIconsContainer, SubmitButton } from "../components/Login.styles"
 import { Link } from "react-router-dom";
 
 const FormWrapper = styled.div`
@@ -23,7 +23,7 @@ const Login: React.FC = () => {
 
     return (
         <LoginPageContainer>
-            <ImageContainer />
+            <LoginImageContainer />
             <LoginFormContainer>
                 <Logo src="../assets/logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
                     <form>

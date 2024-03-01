@@ -17,7 +17,17 @@ export const LoginFormContainer = styled.div`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
 `;
-export const ImageContainer = styled.div`
+export const RegImageContainer = styled.div`
+    background-image: url('/assets/register.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    width: 50%; // Take up half of the container width
+    height: 100vh;
+    flex-shrink: 0;
+`
+
+export const LoginImageContainer = styled.div`
     background-image: url('/assets/login.jpg');
     background-size: cover;
     background-position: center;
@@ -26,6 +36,7 @@ export const ImageContainer = styled.div`
     height: 100vh;
     flex-shrink: 0;
 `
+
 export const Logo = styled.img`
     display: block;
     margin: 0 auto 2rem auto; // Center the logo and add some margin at the bottom

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StyledInput from '../components/StyledInput';
 import Button from '../components/StyledButton';
 import { Link } from 'react-router-dom';
-import { LoginPageContainer, ImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink } from '../components/Login.styles';
+import { LoginPageContainer, RegImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink } from '../components/Login.styles';
 
 const Register: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -27,7 +27,7 @@ const Register: React.FC = () => {
   
     return (
       <LoginPageContainer>
-        <ImageContainer />
+        <RegImageContainer />
         <LoginFormContainer>
             <Logo src="/path-to-your-logo.png" alt="Logo" /> {/* Replace with your logo path */}
                 <form>
