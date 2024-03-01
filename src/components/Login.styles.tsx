@@ -18,7 +18,7 @@ export const LoginFormContainer = styled.div`
     flex-shrink: 0;
 `;
 export const ImageContainer = styled.div`
-    background-image: src={'../assets/login.jpg'};
+    background-image: url('/assets/login.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
