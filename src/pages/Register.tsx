@@ -42,8 +42,8 @@ const Register: React.FC = () => {
                 <SubmitButton type="submit">Create Account</SubmitButton>
 
               </form>
-              <SignUpText>Don't have an account?</SignUpText>
-              <SignUpLink href="/register">Sign up</SignUpLink>
+              <SignUpText>Have an account?</SignUpText>
+              <SignUpLink href="/login">Sign in</SignUpLink>
             <FooterLinksContainer>
               <FooterLink href="#">Contact</FooterLink>
             </FooterLinksContainer>

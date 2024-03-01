@@ -7,7 +7,7 @@ export const breakpoints = {
   mobile: '480px'
 }
 
-export const LoginPageContainer =  styled.div`
+export const LoginPageContainer = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
