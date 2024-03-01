@@ -165,6 +165,7 @@ export const SubmitButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 20px;
   &:hover {
     background-color: #005800; // Slightly darker variant for hover state
   }
