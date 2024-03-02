@@ -13,6 +13,13 @@
   }
 }
 
+@font-face {
+  font-family: 'FjallaOne';
+  src: url('./fonts/FjallaOne-Regular.ttf') format('tff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
