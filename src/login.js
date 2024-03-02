@@ -16,7 +16,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Kết nối database MongoDB
-mongoose.connect('mongodb://localhost:27017/demo-auth', {
+mongoose.connect('mongodb+srv://<Thang>:<thang>@myapp.iwkczlh.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
