@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import StyledInput from '../components/StyledInput';
-import Button from '../components/StyledButton';
 import { Link } from 'react-router-dom';
-import { LoginPageContainer, ImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink } from '../components/Login.styles';
+import { LoginPageContainer, RegImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink, SignUpLink, SignUpText } from '../components/Login.styles';
 
 const Register: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -27,35 +25,28 @@ const Register: React.FC = () => {
   
     return (
       <LoginPageContainer>
-        <ImageContainer />
+        <RegImageContainer />
         <LoginFormContainer>
-            <Logo src="/path-to-your-logo.png" alt="Logo" /> {/* Replace with your logo path */}
-                <form>
-                    <Label htmlFor="fullName">Full Name</Label>
-                    <Input type="fullName" id="fullName" name="fullName" placeholder="Enter full name" required />                    
-                    <Label htmlFor="email">Email address</Label>
-                    <Input type="email" id="email" name="email" placeholder="Enter your email" required />
+            <Logo src="../logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
+              <form>
+                <Label htmlFor="fullName">Full Name</Label>
+                <Input type="fullName" id="fullName" name="fullName" placeholder="" required />                    
+                <Label htmlFor="email">Email address</Label>
+                <Input type="email" id="email" name="email" placeholder="" required />
 
-                    <Label htmlFor="password">Password</Label>
-                    <Input type="password" id="password" name="password" placeholder="Enter your password" required />
-                    <Label htmlFor="confirmPassword">Password Again</Label>
-                    <Input type="confirmPassword" id="confirmPassword" name="confirmPassword" placeholder="Enter your password again" required />
+                <Label htmlFor="password">Password</Label>
+                <Input type="password" id="password" name="password" placeholder="" required />
+                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Input type="confirmPassword" id="confirmPassword" name="confirmPassword" placeholder="" required />
 
-                    <SubmitButton type="submit">Create Account</SubmitButton>
+                <SubmitButton type="submit">Create Account</SubmitButton>
 
-                    <Divider />
-
-                    <SocialIconsContainer>
-                        <img src="/path-to-facebook-icon.png" alt="Facebook" />
-                        <img src="/path-to-google-icon.png" alt="Google" />
-                        <img src="/path-to-twitter-icon.png" alt="Twitter" />
-                    </SocialIconsContainer>
-                </form>
-
-        <FooterLinksContainer>
-            <FooterLink as={Link} to="../register">Sign up</FooterLink>
-            <FooterLink href="#">Contact</FooterLink>
-        </FooterLinksContainer>
+              </form>
+              <SignUpText>Have an account?</SignUpText>
+              <SignUpLink href="/login">Sign in</SignUpLink>
+            <FooterLinksContainer>
+              <FooterLink href="#">Contact</FooterLink>
+            </FooterLinksContainer>
         </LoginFormContainer>
       </LoginPageContainer>
       // <div>

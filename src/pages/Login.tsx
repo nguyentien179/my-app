@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, ImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, RememberMeCheckbox, SocialIconsContainer, SubmitButton } from "../components/Login.styles"
+import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, LoginImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, Checkbox, SocialIconsContainer, SubmitButton, CheckboxLabel, SignUpLink, SignUpText, SocialIcons, SocialIconsLink } from "../components/Login.styles"
 import { Link } from "react-router-dom";
 
 const FormWrapper = styled.div`
@@ -23,37 +23,40 @@ const Login: React.FC = () => {
 
     return (
         <LoginPageContainer>
-            <ImageContainer />
+            <LoginImageContainer />
             <LoginFormContainer>
-                <Logo src="../assets/logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
+                <Logo src="../logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
                     <form>
-                        <Label htmlFor="email">Email address</Label>
-                        <Input type="email" id="email" name="email" placeholder="Enter your email" required />
+                        <Label htmlFor="email">Enter your school email</Label>
+                        <Input type="email" id="email" name="email" placeholder="" required />
 
                         <Label htmlFor="password">Password</Label>
-                        <Input type="password" id="password" name="password" placeholder="Enter your password" required />
+                        <Input type="password" id="password" name="password" placeholder="" required />
 
                         <CheckboxContainer>
                             <div>
-                                <RememberMeCheckbox type="checkbox" id="remember-me" />
-                                <Label htmlFor="remember-me">Remember me</Label>
+                                <Checkbox type="checkbox" id="remember-me" value="Remember Me"/>
+                                    <CheckboxLabel htmlFor="remember-me">Remember me</CheckboxLabel>
                             </div>
                             <ForgotPasswordLink href="#">Forgot password?</ForgotPasswordLink>
                         </CheckboxContainer>
 
                         <SubmitButton type="submit">Sign in</SubmitButton>
 
-                        <Divider />
+                        <Divider>Or sign in with</Divider>
 
                         <SocialIconsContainer>
-                            <img src="/path-to-facebook-icon.png" alt="Facebook" />
-                            <img src="/path-to-google-icon.png" alt="Google" />
-                            <img src="/path-to-twitter-icon.png" alt="Twitter" />
+                            <SocialIconsLink href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                <SocialIcons src="../FB.png" alt="Facebook" />
+                            </SocialIconsLink>
+                            <SocialIconsLink href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                                <SocialIcons src="../mail.png" alt="Google" />
+                            </SocialIconsLink>
                         </SocialIconsContainer>
                     </form>
-
+                        <SignUpText>Don't have an account?</SignUpText>
+                        <SignUpLink href="/register">Sign up</SignUpLink>
             <FooterLinksContainer>
-                <FooterLink as={Link} to="../register">Sign up</FooterLink>
                 <FooterLink href="#">Contact</FooterLink>
             </FooterLinksContainer>
             </LoginFormContainer>
