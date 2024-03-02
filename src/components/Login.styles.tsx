@@ -30,6 +30,7 @@ export const LoginFormContainer = styled.div`
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-shrink: 0;
+    font-family:'Lora';
     @media (max-width: ${breakpoints.tablet}) {
 
     };
@@ -137,6 +138,7 @@ export const Checkbox = styled.input`
 
 export const CheckboxLabel = styled.label`
   font-size: 0.6rem;
+  font-family: 'Lora';
   margin: 0; // Remove any default margin
 `;
 
@@ -144,6 +146,7 @@ export const ForgotPasswordLink = styled.a`
   font-size: 0.6rem;
   color: white;
   text-decoration: none;
+  font-family: 'Lora';
   &:hover {
     text-decoration: underline;
     color: #1bca00
@@ -183,7 +186,7 @@ export const Divider = styled.div`
   align-items: center;
   text-align: center;
   color: #fff; // Adjust the color to fit your design
-
+  font-family: 'Inter';
   &::before,
   &::after {
     content: '';
@@ -230,12 +233,14 @@ export const SocialIconsContainer = styled.div`
 export const SignUpText = styled.span`
   color: #fff; // Or your theme's text color
   margin-right: 5px;
+  font-family: 'Inter';
+
 `;
 
 export const SignUpLink = styled.a`
   color: #005800; // Or your theme's button color
   text-decoration: none; // Remove underline from the link
-
+  font-family: 'Inter';
   &:hover {
     color: #017501; // Add underline on hover for better UX
   }

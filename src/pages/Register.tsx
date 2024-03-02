@@ -27,7 +27,7 @@ const Register: React.FC = () => {
       <LoginPageContainer>
         <RegImageContainer />
         <LoginFormContainer>
-            <Logo src="../assets/logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
+            <Logo src="../logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
               <form>
                 <Label htmlFor="fullName">Full Name</Label>
                 <Input type="fullName" id="fullName" name="fullName" placeholder="" required />                    
