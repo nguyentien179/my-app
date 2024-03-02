@@ -28,10 +28,10 @@ const Login: React.FC = () => {
                 <Logo src="../logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
                     <form>
                         <Label htmlFor="email">Enter your school email</Label>
-                        <Input type="email" id="email" name="email" placeholder="Email" required />
+                        <Input type="email" id="email" name="email" placeholder="" required />
 
                         <Label htmlFor="password">Password</Label>
-                        <Input type="password" id="password" name="password" placeholder="Password" required />
+                        <Input type="password" id="password" name="password" placeholder="" required />
 
                         <CheckboxContainer>
                             <div>

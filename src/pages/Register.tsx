@@ -30,14 +30,14 @@ const Register: React.FC = () => {
             <Logo src="../assets/logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
               <form>
                 <Label htmlFor="fullName">Full Name</Label>
-                <Input type="fullName" id="fullName" name="fullName" placeholder="Enter full name" required />                    
+                <Input type="fullName" id="fullName" name="fullName" placeholder="" required />                    
                 <Label htmlFor="email">Email address</Label>
-                <Input type="email" id="email" name="email" placeholder="Enter your email" required />
+                <Input type="email" id="email" name="email" placeholder="" required />
 
                 <Label htmlFor="password">Password</Label>
-                <Input type="password" id="password" name="password" placeholder="Enter your password" required />
-                <Label htmlFor="confirmPassword">Password Again</Label>
-                <Input type="confirmPassword" id="confirmPassword" name="confirmPassword" placeholder="Enter your password again" required />
+                <Input type="password" id="password" name="password" placeholder="" required />
+                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Input type="confirmPassword" id="confirmPassword" name="confirmPassword" placeholder="" required />
 
                 <SubmitButton type="submit">Create Account</SubmitButton>
 
