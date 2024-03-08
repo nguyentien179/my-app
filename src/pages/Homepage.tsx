@@ -143,78 +143,66 @@ const latestArticle = {
 
 function DiscussionPage() {
   return (
-    <Flex background="#e1f4dc" p={5}>
-      {/* Discussions & Articles Panel */}
-      <Box width="50%" backgroundColor="#426B1F" borderRadius="lg" p={5} boxShadow="lg">
-        <Flex justifyContent="center" mb={5}>
-
-          {/* Centered Box for 'Discussions & Articles' text */}
-          <Center
-            px="4"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            height="60px"
-            borderRadius="lg"
-            backgroundColor="#e1f4dc"
-            boxShadow="md"
-            width="auto" // Make the width auto to only be as wide as its content
-          >
-            <Text fontSize="xl" fontWeight="bold" color="#426B1F">Discussions & Articles</Text>
-          </Center>
-
-          {/* Spacer to push the next item to the right */}
-          <Box flex="1"></Box>
-
-          {/* Centered Box for 'View all discussions' text */}
-          <Center
-            px="4"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-            height="60px"
-            borderRadius="lg"
-            backgroundColor="#e1f4dc"
-            boxShadow="md"
-          >
-            <Link color="#426B1F" fontWeight="bold">View all discussions</Link>
-          </Center>
-
+    <Flex background="#e1f4dc" p={20}>
+      {/* Header for 'Discussions & Articles' and 'View all discussions' */}
+      <Flex justifyContent="start" width="50%" p={10} direction="column">
+        {/* 'Discussions & Articles' header box */}
+        <Flex justifyContent="space-between" p={4} bg="#fff" borderRadius="lg" boxShadow="md" mb="5">
+          <Text fontSize="3xl" fontWeight="bold" color="#426B1F" alignSelf="center">Discussions <br/>& Articles</Text>
+          <Link color="#426B1F" fontWeight="bold" alignSelf="center">View all discussions</Link>
         </Flex>
-        <Stack spacing={4}>
-          {/* Mapping discussions */}
-          {discussions.map((discussion) => (
-            <Flex key={discussion.id} alignItems="center">
-              <Avatar name={discussion.author} src={discussion.avatarUrl} />
-              <Box ml={3}>
-                <Text fontWeight="bold">{discussion.title}</Text>
-                <Text fontSize="sm">{discussion.author} · {discussion.timeAgo}</Text>
-              </Box>
-            </Flex>
-          ))}
-        </Stack>
-      </Box>
+        {/* 'View all discussions' header box */}
+
+        <Box width="full" backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg">
+          <Stack spacing={4}>
+            {/* Mapping discussions */}
+            {discussions.map((discussion) => (
+              <Flex key={discussion.id} alignItems="center">
+                <Avatar name={discussion.author} src={discussion.avatarUrl} />
+                <Flex justifyContent="space-between" p={4} bg="#fff" borderRadius="lg" boxShadow="md">
+                <Box ml={3}>
+                  <Text fontWeight="bold" color="#426b1f">{discussion.title}</Text>
+                  <Text fontSize="sm" color="gray.300">{discussion.author} · {discussion.timeAgo}</Text>
+                </Box>
+                </Flex>
+              </Flex>
+            ))}
+          </Stack>
+        </Box>
+      </Flex>
+
 
       {/* Latest Articles Panel */}
-      <Box width="50%" backgroundColor="#426B1F" borderRadius="lg" p={5} ml={5} boxShadow="lg">
-        <Flex justifyContent="space-between" mb={5} alignItems="center">
-          <Text fontSize="xl" fontWeight="bold">Latest Articles</Text>
-          <InputGroup>
-            <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
-            <Input variant="filled" placeholder="Search discussions" />
-          </InputGroup>
+      <Box width="50%" ml={50}>
+      {/* Title 'Latest Articles' */}
+          <Text fontSize="3xl" fontWeight="bold" color="#426B1F" alignSelf="center">Latest Articles</Text>
+      {/* Search bar */}
+      <InputGroup mb={5}>
+        <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
+        <Input variant="filled" placeholder="Search discussions" />
+      </InputGroup>
+
+      {/* Green box containing the image and discussion title */}
+      <Box backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" position="relative">
+        {/* Image */}
+        <Image 
+          src={latestArticle.imageUrl} 
+          alt={latestArticle.title} 
+          objectFit="cover" 
+          width="100%" 
+          height="50%"
+        />
+
+        {/* Discussion Title */}
+        <Flex position="absolute" bottom={3} right={3} alignItems="center" backgroundColor="rgba(255, 255, 255, 0.8)" p={2} borderRadius="md">
+          <Avatar name={latestArticle.author} src={latestArticle.avatarUrl} />
+          <Box ml={3}>
+            <Text fontWeight="bold">{latestArticle.title}</Text>
+            <Text fontSize="sm">{latestArticle.author} · {latestArticle.timeAgo}</Text>
+          </Box>
         </Flex>
-        <Box position="relative" borderRadius="lg" overflow="hidden">
-          <Image src={latestArticle.imageUrl} alt={latestArticle.title} objectFit="cover" width="50%" height="50%" />
-          <Flex position="absolute" bottom={3} right={3} alignItems="center">
-            <Avatar name={latestArticle.author} src={latestArticle.avatarUrl} />
-            <Box ml={3}>
-              <Text fontWeight="bold">{latestArticle.title}</Text>
-              <Text fontSize="sm">{latestArticle.author} · {latestArticle.timeAgo}</Text>
-            </Box>
-          </Flex>
-        </Box>
       </Box>
+    </Box>
     </Flex>
   );
 }
