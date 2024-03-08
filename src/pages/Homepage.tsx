@@ -58,8 +58,9 @@ export const Header = () => {
           <option value="es">Español</option>
           {/* More languages */}
         </Select>
-
-        <Button bg="#426B1F" color="#FFF" variant="solid" size="lg" mr="4" _hover={{ bg:"#e0e0e0", color:"#426B1F" }}>Login</Button>
+        <Link href="/login">
+          <Button bg="#426B1F" color="#FFF" variant="solid" size="lg" mr="4" _hover={{ bg:"#e0e0e0", color:"#426B1F" }}>Login</Button>
+        </Link>
       </Box>
       </Flex>
     </Flex>
