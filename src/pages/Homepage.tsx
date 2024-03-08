@@ -251,8 +251,8 @@ const TeamSection = () => {
             <Image
               src={member.image}
               alt={member.name}
-              borderRadius="full"
-              boxSize="150px"
+              borderRadius="30"
+              boxSize="250px"
               objectFit="cover"
               mb={4} // Margin bottom for spacing between image and text box
             />
