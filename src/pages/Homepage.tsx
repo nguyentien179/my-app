@@ -19,14 +19,19 @@ import {
   VStack,
   Heading,
   SimpleGrid,
-  IconButton,
   Avatar,
   Stack,
+  Container,
+  Icon,
 } from '@chakra-ui/react';
 import about from "../assets/seven-shooter-hPKTYwJ4FUo-unsplash.jpg"
 import { SearchIcon } from '@chakra-ui/icons';
 import { FaFacebook, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import post1 from "../assets/post 1.jpg"
+import ceo1 from "../assets/ceo1.png"
+import ceo2 from "../assets/ceo2.jpg"
+import ceo3 from "../assets/ceo3.jpg"
+
 export const Header = () => {
 
   return (
@@ -211,39 +216,50 @@ const teamMembers = [
   {
     name: 'Marcus Thompson',
     title: 'Dean of Student Affairs',
-    image: 'path-to-marcus-image.jpg', // Replace with your image paths
+    image: ceo1, // Replace with your image paths
   },
   {
     name: 'DaQuan Rodriguez',
     title: 'Director of Diversity and Inclusion Programs',
-    image: 'path-to-daquan-image.jpg',
+    image: ceo3,
   },
   {
     name: 'Jessica Patel',
     title: 'Assistant Professor of Environmental Science',
-    image: 'path-to-jessica-image.jpg',
+    image: ceo2,
   },
   // Add more team members as needed
 ];
 
 const TeamSection = () => {
   return (
-    <Box bg="green.100" p={5}>
-      <Heading as="h3" size="lg" textAlign="center" mb={6}>
-        Team members
-      </Heading>
-      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} justifyContent="center">
+    <Box bg="#badbb2" p={10} textAlign="center" >
+      <Box display="inline-block" bg="white" px={3} py={5} borderRadius="md" boxShadow="md" textAlign="center">
+        <Heading as="h2" size="lg" color="#1d4732">
+          Team members
+        </Heading>
+      </Box>
+      <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} justifyContent="center" mt={10}>
         {teamMembers.map((member) => (
-          <VStack key={member.name} spacing={4} bg="white" p={5} borderRadius="xl" boxShadow="md">
+          <VStack
+            key={member.name}
+            spacing={4}
+            p={5}
+            borderRadius="lg" // Adjust the borderRadius to match the desired style
+            boxShadow="lg" // Shadow to lift the cards off the page
+          >
             <Image
               src={member.image}
               alt={member.name}
               borderRadius="full"
               boxSize="150px"
               objectFit="cover"
+              mb={4} // Margin bottom for spacing between image and text box
             />
-            <Text fontWeight="bold">{member.name}</Text>
-            <Text fontSize="sm">{member.title}</Text>
+            <Box p={3} borderRadius="md" boxShadow="sm" textAlign="center">
+              <Text fontWeight="bold" fontSize="lg" color="#fff">{member.name}</Text>
+              <Text fontSize="sm" color="#fff">{member.title}</Text>
+            </Box>
           </VStack>
         ))}
       </SimpleGrid>
@@ -253,33 +269,43 @@ const TeamSection = () => {
 
 const Footer = () => {
   return (
-    <Box as="footer" bg="green.300" color="white" py={10} px={16}>
-      <Flex direction={{ base: 'column', md: 'row' }} justify="space-between" align="center">
-        <VStack align="start" mb={{ base: 4, md: 0 }}>
-          <Divider borderColor="white" />
-          <Text py={2}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Text>
-          <Divider borderColor="white" />
-        </VStack>
-        
-        <VStack align="center" mb={{ base: 4, md: 0 }}>
-          <Text fontSize="xl" fontWeight="bold">Website</Text>
-          <HStack>
-            <IconButton as={Link} href="#" aria-label="Facebook" icon={<FaFacebook />} isRound={true} size="lg" variant="ghost" />
-            <IconButton as={Link} href="#" aria-label="Twitter" icon={<FaTwitter />} isRound={true} size="lg" variant="ghost" />
-            <IconButton as={Link} href="#" aria-label="Email" icon={<FaEnvelope />} isRound={true} size="lg" variant="ghost" />
-          </HStack>
-          <Text pt={2}>Or contact us locally</Text>
-          <Text>+84 1234 5678</Text>
-        </VStack>
-
-        <VStack align="end">
-          <Text fontSize="xl" fontWeight="bold">About Website</Text>
-          <Link href="#" isTruncated>Terms & Conditions</Link>
-          <Link href="#" isTruncated>Contact</Link>
-        </VStack>
-      </Flex>
+    <Box bg="#4e5d4a" color="white" p={10}>
+      <Container maxW="container.xl" centerContent>
+        <Stack direction={{ base: 'column', md: 'row' }} spacing={8} align="center" justify="space-between" width="full">
+          {/* Left text block */}
+          <VStack spacing={4} alignItems="flex-start">
+            <Text fontSize="sm" textAlign="left">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </Text>
+            <Divider borderColor="whiteAlpha.800" />
+            <Text fontSize="xs" textAlign="left">
+              Or contact us locally
+            </Text>
+            <Text fontSize="xs" textAlign="left">
+              +84 1234 5678
+            </Text>
+          </VStack>
+          
+          {/* Center block with icons */}
+          <VStack>
+            <Text fontSize="lg" fontWeight="bold" mb={2}>Website</Text>
+            <HStack spacing={4}>
+              <Icon as={FaFacebook} w={6} h={6} />
+              <Icon as={FaTwitter} w={6} h={6} />
+              <Icon as={FaEnvelope} w={6} h={6} />
+            </HStack>
+          </VStack>
+          
+          {/* Right text block */}
+          <VStack alignItems="flex-start" spacing={2}>
+            <Text fontSize="lg" fontWeight="bold">About Website</Text>
+            <Text fontSize="sm">Terms & Conditions</Text>
+            <Text fontSize="sm">Contact</Text>
+            <Divider borderColor="whiteAlpha.800" />
+          </VStack>
+        </Stack>
+      </Container>
     </Box>
   );
 };
