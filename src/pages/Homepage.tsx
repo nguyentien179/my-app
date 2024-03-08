@@ -20,11 +20,13 @@ import {
   Heading,
   SimpleGrid,
   IconButton,
+  Avatar,
+  Stack,
 } from '@chakra-ui/react';
 import about from "../assets/seven-shooter-hPKTYwJ4FUo-unsplash.jpg"
 import { SearchIcon } from '@chakra-ui/icons';
 import { FaFacebook, FaTwitter, FaEnvelope } from 'react-icons/fa';
-
+import post1 from "../assets/post 1.jpg"
 export const Header = () => {
 
   return (
@@ -100,72 +102,122 @@ const AboutSection = () => {
 
 const discussions = [
   {
+    id: 'd1',
     title: 'Photo correlations',
     author: 'Maria Omaga',
-    time: '3 hours ago',
-    avatar: 'path-to-avatar-1.jpg',
+    timeAgo: '3 hours ago',
+    avatarUrl: 'path_to_maria_avatar_image' // replace with actual avatar URL
   },
-  // ... more discussion items
+  {
+    id: 'd2',
+    title: 'Lightroom',
+    author: 'Nicky Nicknack',
+    timeAgo: '10 hours ago',
+    avatarUrl: 'path_to_nicky_avatar_image' // replace with actual avatar URL
+  },
+  {
+    id: 'd3',
+    title: 'Took this myself! !?!?',
+    author: 'Black Woman',
+    timeAgo: '2 days ago',
+    avatarUrl: 'path_to_black_woman_avatar_image' // replace with actual avatar URL
+  },
+  {
+    id: 'd4',
+    title: 'Saturation Enhancer',
+    author: 'Shala Kaddidi DuDuhu',
+    timeAgo: '5 days ago',
+    avatarUrl: 'path_to_shala_avatar_image' // replace with actual avatar URL
+  }
 ];
 
+// Mock data for the latest article
 const latestArticle = {
+  id: 'a1',
   title: 'Photo correlations',
   author: 'Maria Omaga',
-  time: '3 hours ago',
-  image: 'path-to-latest-article-image.jpg',
-  avatar: 'path-to-avatar-1.jpg',
+  timeAgo: '3 hours ago',
+  avatarUrl: 'path_to_maria_avatar_image', // replace with actual avatar URL
+  imageUrl: post1 // replace with actual image URL of the forest
 };
 
-const DiscussionsAndArticles = () => {
+function DiscussionPage() {
   return (
-    <Flex direction={{ base: 'column', md: 'row' }} alignItems="flex-start">
-      {/* Left Section - Discussions & Articles */}
-      <VStack spacing={4} alignItems="stretch" flex="1" mr={{ base: 0, md: 3 }}>
-        <Text fontSize="xl" fontWeight="bold" p={4} bg="green.300" borderRadius="md">
-          Discussions & Articles
-        </Text>
-        <Button variant="outline" size="sm" alignSelf="flex-end" mr={4}>
-          View all discussions
-        </Button>
-        {discussions.map((discussion) => (
-          <Box key={discussion.title} p={4} bg="green.100" borderRadius="md" boxShadow="md">
-            <HStack spacing={4}>
-              <Image borderRadius="full" boxSize="50px" src={discussion.avatar} alt={discussion.author} />
-              <VStack alignItems="flex-start">
+    <Flex background="#e1f4dc" p={5}>
+      {/* Discussions & Articles Panel */}
+      <Box width="50%" backgroundColor="#426B1F" borderRadius="lg" p={5} boxShadow="lg">
+        <Flex justifyContent="center" mb={5}>
+
+          {/* Centered Box for 'Discussions & Articles' text */}
+          <Center
+            px="4"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            height="60px"
+            borderRadius="lg"
+            backgroundColor="#e1f4dc"
+            boxShadow="md"
+            width="auto" // Make the width auto to only be as wide as its content
+          >
+            <Text fontSize="xl" fontWeight="bold" color="#426B1F">Discussions & Articles</Text>
+          </Center>
+
+          {/* Spacer to push the next item to the right */}
+          <Box flex="1"></Box>
+
+          {/* Centered Box for 'View all discussions' text */}
+          <Center
+            px="4"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            height="60px"
+            borderRadius="lg"
+            backgroundColor="#e1f4dc"
+            boxShadow="md"
+          >
+            <Link color="#426B1F" fontWeight="bold">View all discussions</Link>
+          </Center>
+
+        </Flex>
+        <Stack spacing={4}>
+          {/* Mapping discussions */}
+          {discussions.map((discussion) => (
+            <Flex key={discussion.id} alignItems="center">
+              <Avatar name={discussion.author} src={discussion.avatarUrl} />
+              <Box ml={3}>
                 <Text fontWeight="bold">{discussion.title}</Text>
-                <Text fontSize="sm">{discussion.author} - {discussion.time}</Text>
-              </VStack>
-            </HStack>
-          </Box>
-        ))}
-      </VStack>
+                <Text fontSize="sm">{discussion.author} · {discussion.timeAgo}</Text>
+              </Box>
+            </Flex>
+          ))}
+        </Stack>
+      </Box>
 
-      {/* Divider */}
-      <Divider orientation="vertical" height="auto" alignSelf="stretch" mx={6} />
-
-      {/* Right Section - Latest Article */}
-      <VStack spacing={4} alignItems="stretch" flex="1" ml={{ base: 0, md: 3 }}>
-        <Text fontSize="xl" fontWeight="bold" p={4} bg="green.300" borderRadius="md">
-          Latest Articles <span aria-label="heart" role="img">❤️</span>
-        </Text>
-        <InputGroup>
-          <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
-          <Input type="text" placeholder="Search discussions" />
-        </InputGroup>
-        <Box bg="green.100" borderRadius="md" boxShadow="md" p={4}>
-          <Image borderRadius="md" src={latestArticle.image} alt={latestArticle.title} />
-          <HStack justifyContent="space-between" mt={3}>
-            <VStack alignItems="flex-start">
+      {/* Latest Articles Panel */}
+      <Box width="50%" backgroundColor="#426B1F" borderRadius="lg" p={5} ml={5} boxShadow="lg">
+        <Flex justifyContent="space-between" mb={5} alignItems="center">
+          <Text fontSize="xl" fontWeight="bold">Latest Articles</Text>
+          <InputGroup>
+            <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
+            <Input variant="filled" placeholder="Search discussions" />
+          </InputGroup>
+        </Flex>
+        <Box position="relative" borderRadius="lg" overflow="hidden">
+          <Image src={latestArticle.imageUrl} alt={latestArticle.title} objectFit="cover" width="50%" height="50%" />
+          <Flex position="absolute" bottom={3} right={3} alignItems="center">
+            <Avatar name={latestArticle.author} src={latestArticle.avatarUrl} />
+            <Box ml={3}>
               <Text fontWeight="bold">{latestArticle.title}</Text>
-              <Text fontSize="sm">{latestArticle.author} - {latestArticle.time}</Text>
-            </VStack>
-            <Image borderRadius="full" boxSize="50px" src={latestArticle.avatar} alt={latestArticle.author} />
-          </HStack>
+              <Text fontSize="sm">{latestArticle.author} · {latestArticle.timeAgo}</Text>
+            </Box>
+          </Flex>
         </Box>
-      </VStack>
+      </Box>
     </Flex>
   );
-};
+}
 
 const teamMembers = [
   {
@@ -250,7 +302,7 @@ const Homepage = () => {
       <Header></Header>
       <Quote></Quote>
       <AboutSection></AboutSection>
-      <DiscussionsAndArticles></DiscussionsAndArticles>
+      <DiscussionPage></DiscussionPage>
       <TeamSection></TeamSection>
       <Footer></Footer>
     </Box>
