@@ -196,7 +196,7 @@ export function DiscussionPage() {
         />
 
         {/* Discussion Title */}
-        <Flex position="absolute" bottom={3} right={3} alignItems="center" backgroundColor="rgba(143, 168, 131, 0.6)" p={2} borderRadius="md" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
+        <Flex position="absolute" bottom={3} right={3} alignItems="center" backgroundColor="rgba(225, 244, 220, 0.8)" p={2} borderRadius="md" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
           <Avatar name={latestArticle.author} src={latestArticle.avatarUrl} />
           <Box ml={3}>
             <Text fontWeight="bold">{latestArticle.title}</Text>
