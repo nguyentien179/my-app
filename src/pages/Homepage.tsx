@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Box,
   Flex,
@@ -66,7 +64,6 @@ export const Header = () => {
     </Flex>
   );
 };
-
 
 export const Quote = () => {
   return (
@@ -137,7 +134,6 @@ const discussions = [
   }
 ];
 
-// Mock data for the latest article
 const latestArticle = {
   id: 'a1',
   title: 'Photo correlations',
