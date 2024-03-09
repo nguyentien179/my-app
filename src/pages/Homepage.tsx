@@ -300,15 +300,15 @@ const Footer = () => {
           {/* Right text block */}
           <VStack alignItems="flex-start" spacing={2}>
           <Divider borderColor="whiteAlpha.800" />
-          <link>
+          <Link href=''>
             <Text fontSize="3xl" fontWeight="bold">About Website</Text>
-          </link>
-          <link>
+          </Link>
+          <Link href=''>
             <Text fontSize="3xl">Terms & Conditions</Text>
-          </link>
-          <link>
+          </Link>
+          <Link href=''>
             <Text fontSize="3xl">Contact</Text>
-          </link>
+          </Link>
             <Divider borderColor="whiteAlpha.800" />
           </VStack>
         </Stack>
