@@ -143,7 +143,7 @@ const latestArticle = {
   imageUrl: post1 // replace with actual image URL of the forest
 };
 
-function DiscussionPage() {
+export function DiscussionPage() {
   return (
     <Flex background="#e1f4dc" p={20}>
       {/* Header for 'Discussions & Articles' and 'View all discussions' */}
@@ -269,7 +269,7 @@ function TeamSection() {
   );
 }
 
-function Footer() {
+export function Footer() {
   return (
     <Box bg="#8fa88a" color="white" p={10}>
       <Container centerContent maxW="none">
