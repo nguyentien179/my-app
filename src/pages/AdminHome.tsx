@@ -155,14 +155,14 @@ function DiscussionPage() {
         </Flex>
         {/* 'View all discussions' header box */}
 
-        <Box width="full" backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg">
+        <Box width="full" backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" >
           <Stack spacing={4}>
             {/* Mapping discussions */}
             {discussions.map((discussion) => (
               <Flex key={discussion.id} alignItems="center">
                 <Avatar name={discussion.author} src={discussion.avatarUrl} />
-                <Flex justifyContent="space-between" p={4} bg="#fff" borderRadius="lg" boxShadow="md">
-                <Box ml={3}>
+                <Flex justifyContent="space-between" p={4} bg="#fff" borderRadius="lg" boxShadow="md" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
+                <Box ml={3} >
                   <Text fontWeight="bold" color="#426b1f">{discussion.title}</Text>
                   <Text fontSize="sm" color="gray.300">{discussion.author} · {discussion.timeAgo}</Text>
                 </Box>
@@ -177,7 +177,7 @@ function DiscussionPage() {
       {/* Latest Articles Panel */}
       <Box width="50%" ml={50}>
       {/* Title 'Latest Articles' */}
-          <Text fontSize="3xl" fontWeight="bold" color="#426B1F" alignSelf="center">Latest Articles</Text>
+          <Text fontSize="4xl" fontWeight="bold" color="#426B1F" alignSelf="center" mb={5}>Latest Articles</Text>
       {/* Search bar */}
       <InputGroup mb={5}>
         <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
@@ -185,7 +185,7 @@ function DiscussionPage() {
       </InputGroup>
 
       {/* Green box containing the image and discussion title */}
-      <Box backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" position="relative">
+      <Box backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" position="relative" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
         {/* Image */}
         <Image 
           src={latestArticle.imageUrl} 
@@ -196,7 +196,7 @@ function DiscussionPage() {
         />
 
         {/* Discussion Title */}
-        <Flex position="absolute" bottom={3} right={3} alignItems="center" backgroundColor="rgba(255, 255, 255, 0.8)" p={2} borderRadius="md">
+        <Flex position="absolute" bottom={3} right={3} alignItems="center" backgroundColor="rgba(143, 168, 131, 0.6)" p={2} borderRadius="md" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
           <Avatar name={latestArticle.author} src={latestArticle.avatarUrl} />
           <Box ml={3}>
             <Text fontWeight="bold">{latestArticle.title}</Text>
