@@ -282,30 +282,37 @@ const Footer = () => {
               <br/> commodo consequat.
             </Text>
             <Divider borderColor="whiteAlpha.800" />
-            <Text fontSize="xs" textAlign="left">
-              Or contact us locally
-            </Text>
-            <Text fontSize="xs" textAlign="left">
-              +84 1234 5678
-            </Text>
+
           </VStack>
           
           {/* Center block with icons */}
-          <VStack>
-            <Text fontSize="3xl" fontWeight="bold" mb={2}>Website</Text>
+          <VStack gap={3.5}>
+            <Text fontSize="5xl" fontWeight="bold" mb={2}>Website</Text>
             <HStack spacing={4}>
-              <Icon as={FaFacebook} w={6} h={6} />
-              <Icon as={FaTwitter} w={6} h={6} />
-              <Icon as={FaEnvelope} w={6} h={6} />
+              <Icon as={FaFacebook} w={10} h={10} />
+              <Icon as={FaTwitter} w={10} h={10} />
+              <Icon as={FaEnvelope} w={10} h={10} />
             </HStack>
+            <Text fontSize="lg" textAlign="left">
+              Or contact us locally
+            </Text>
+            <Text fontSize="lg" textAlign="left">
+              +84 1234 5678
+            </Text>
           </VStack>
           
           {/* Right text block */}
           <VStack alignItems="flex-start" spacing={2}>
           <Divider borderColor="whiteAlpha.800" />
+          <link>
             <Text fontSize="3xl" fontWeight="bold">About Website</Text>
+          </link>
+          <link>
             <Text fontSize="3xl">Terms & Conditions</Text>
+          </link>
+          <link>
             <Text fontSize="3xl">Contact</Text>
+          </link>
             <Divider borderColor="whiteAlpha.800" />
           </VStack>
         </Stack>
