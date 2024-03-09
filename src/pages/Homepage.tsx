@@ -270,14 +270,16 @@ const TeamSection = () => {
 
 const Footer = () => {
   return (
-    <Box bg="#4e5d4a" color="white" p={10}>
-      <Container maxW="container.xl" centerContent>
+    <Box bg="#8fa88a" color="white" p={10}>
+      <Container centerContent maxW="none">
         <Stack direction={{ base: 'column', md: 'row' }} spacing={8} align="center" justify="space-between" width="full">
           {/* Left text block */}
           <VStack spacing={4} alignItems="flex-start">
+            <Divider borderColor="whiteAlpha.800" />
             <Text fontSize="sm" textAlign="left">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/> tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim <br/> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              <br/> commodo consequat.
             </Text>
             <Divider borderColor="whiteAlpha.800" />
             <Text fontSize="xs" textAlign="left">
@@ -290,7 +292,7 @@ const Footer = () => {
           
           {/* Center block with icons */}
           <VStack>
-            <Text fontSize="lg" fontWeight="bold" mb={2}>Website</Text>
+            <Text fontSize="3xl" fontWeight="bold" mb={2}>Website</Text>
             <HStack spacing={4}>
               <Icon as={FaFacebook} w={6} h={6} />
               <Icon as={FaTwitter} w={6} h={6} />
@@ -300,9 +302,10 @@ const Footer = () => {
           
           {/* Right text block */}
           <VStack alignItems="flex-start" spacing={2}>
-            <Text fontSize="lg" fontWeight="bold">About Website</Text>
-            <Text fontSize="sm">Terms & Conditions</Text>
-            <Text fontSize="sm">Contact</Text>
+          <Divider borderColor="whiteAlpha.800" />
+            <Text fontSize="3xl" fontWeight="bold">About Website</Text>
+            <Text fontSize="3xl">Terms & Conditions</Text>
+            <Text fontSize="3xl">Contact</Text>
             <Divider borderColor="whiteAlpha.800" />
           </VStack>
         </Stack>
