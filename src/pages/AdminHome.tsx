@@ -30,66 +30,66 @@ import ceo1 from "../assets/ceo1.png"
 import ceo2 from "../assets/ceo2.jpg"
 import ceo3 from "../assets/ceo3.jpg"
 
-export function Header() {
+export const Header = () => {
 
   return (
     <Flex as="header" align="center" padding="1rem" bg="white" boxShadow="sm" width="100%">
       <Box p="2">
-        <Image src="path-to-your-logo.svg" alt="Website logo" boxSize="70px" ml="4" />
+        <Image src="path-to-your-logo.svg" alt="Website logo" boxSize="70px" ml="4"/>
       </Box>
-
+      
       <Spacer /> {/* This pushes all elements to the right and left sides of the header */}
-
+      
       <Flex alignItems="center" ml="auto">
-        <Box display="flex" alignItems="center">
-          {/* This container will group the navigation links, language selector, and login button */}
+      <Box display="flex" alignItems="center">
+        {/* This container will group the navigation links, language selector, and login button */}
+        
+        <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
+          Newsfeed
+        </Link>
+        <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
+          Contact
+        </Link>
 
-          <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
-            Newsfeed
-          </Link>
-          <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
-            Contact
-          </Link>
-
-          <Select placeholder="Language" width="auto" mr="20">
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            {/* More languages */}
-          </Select>
-          <Link href="/login">
-            <Button bg="#426B1F" color="#FFF" variant="solid" size="lg" mr="4" _hover={{ bg: "#e0e0e0", color: "#426B1F" }}>Login</Button>
-          </Link>
-        </Box>
+        <Select placeholder="Language" width="auto" mr="20">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          {/* More languages */}
+        </Select>
+        <Link href="/login">
+          <Button bg="#426B1F" color="#FFF" variant="solid" size="lg" mr="4" _hover={{ bg:"#e0e0e0", color:"#426B1F" }}>Login</Button>
+        </Link>
+      </Box>
       </Flex>
     </Flex>
   );
-}
+};
 
-export function Quote() {
+export const Quote = () => {
   return (
     <Box as="section" bg="white.100" my={20}>
       <Center flexDirection="column" textAlign="center" px={4}>
         <Text fontSize="2xl" mb={4}>
           Push <em>harder</em> than yesterday<br /> if you want a <em>different</em> tomorrow.
         </Text>
-        <Button bg="#426B1F" color="#FFF" variant="solid" size="lg" _hover={{ bg: "#e0e0e0", color: "#426B1F" }}>
+        <Button bg="#426B1F" color="#FFF" variant="solid" size="lg"_hover={{ bg:"#e0e0e0", color:"#426B1F" }}>
           Browse Newsfeed
         </Button>
       </Center>
     </Box>
   );
-}
+};
 
-function AboutSection() {
+const AboutSection = () => {
   return (
     <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="center" p={5} bg="rgba(126,210,129,0.2)" w="full">
       {/* Left part with 2x2 grid of boxes */}
       <Grid gap={4} placeItems="center" maxWidth="40%">
-        <Image src={about} alt="Descriptive text" boxSize="100%" objectFit="cover" objectPosition="center" borderRadius="lg" boxShadow="base" fallbackSrc='https://via.placeholder.com/150' />
+        <Image src={about} alt="Descriptive text" boxSize="100%" objectFit="cover" objectPosition="center" borderRadius="lg" boxShadow="base" fallbackSrc='https://via.placeholder.com/150'/>
       </Grid>
 
       {/* Right part with Lorem Ipsum text */}
-      <Box maxWidth={{ base: "80%", md: "50%" }} textAlign="left" p={{ base: 4, md: 8 }}>
+      <Box maxWidth={{base: "80%", md: "50%"}} textAlign="left" p={{ base:4, md: 8 }}>
         <Text fontSize="4xl" color="black" fontWeight="bold">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit,
           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -101,7 +101,7 @@ function AboutSection() {
       </Box>
     </Flex>
   );
-}
+};
 
 const discussions = [
   {
@@ -155,14 +155,14 @@ function DiscussionPage() {
         </Flex>
         {/* 'View all discussions' header box */}
 
-        <Box width="full" backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" >
+        <Box width="full" backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg">
           <Stack spacing={4}>
             {/* Mapping discussions */}
             {discussions.map((discussion) => (
               <Flex key={discussion.id} alignItems="center">
                 <Avatar name={discussion.author} src={discussion.avatarUrl} />
-                <Flex justifyContent="space-between" p={4} bg="#fff" borderRadius="lg" boxShadow="md" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
-                <Box ml={3} >
+                <Flex justifyContent="space-between" p={4} bg="#fff" borderRadius="lg" boxShadow="md">
+                <Box ml={3}>
                   <Text fontWeight="bold" color="#426b1f">{discussion.title}</Text>
                   <Text fontSize="sm" color="gray.300">{discussion.author} · {discussion.timeAgo}</Text>
                 </Box>
@@ -177,7 +177,7 @@ function DiscussionPage() {
       {/* Latest Articles Panel */}
       <Box width="50%" ml={50}>
       {/* Title 'Latest Articles' */}
-          <Text fontSize="4xl" fontWeight="bold" color="#426B1F" alignSelf="center" mb={5}>Latest Articles</Text>
+          <Text fontSize="3xl" fontWeight="bold" color="#426B1F" alignSelf="center">Latest Articles</Text>
       {/* Search bar */}
       <InputGroup mb={5}>
         <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
@@ -185,7 +185,7 @@ function DiscussionPage() {
       </InputGroup>
 
       {/* Green box containing the image and discussion title */}
-      <Box backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" position="relative" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
+      <Box backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" position="relative">
         {/* Image */}
         <Image 
           src={latestArticle.imageUrl} 
@@ -196,7 +196,7 @@ function DiscussionPage() {
         />
 
         {/* Discussion Title */}
-        <Flex position="absolute" bottom={3} right={3} alignItems="center" backgroundColor="rgba(143, 168, 131, 0.6)" p={2} borderRadius="md" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
+        <Flex position="absolute" bottom={3} right={3} alignItems="center" backgroundColor="rgba(255, 255, 255, 0.8)" p={2} borderRadius="md">
           <Avatar name={latestArticle.author} src={latestArticle.avatarUrl} />
           <Box ml={3}>
             <Text fontWeight="bold">{latestArticle.title}</Text>
@@ -228,9 +228,9 @@ const teamMembers = [
   // Add more team members as needed
 ];
 
-function TeamSection() {
+const TeamSection = () => {
   return (
-    <Box bg="#badbb2" p={10} textAlign="center">
+    <Box bg="#badbb2" p={10} textAlign="center" >
       <Box display="inline-block" bg="white" px={3} py={5} borderRadius="md" boxShadow="md" textAlign="center">
         <Heading as="h2" size="lg" color="#1d4732">
           Team members
@@ -243,12 +243,7 @@ function TeamSection() {
             spacing={4}
             p={5}
             borderRadius="lg" // Adjust the borderRadius to match the desired style
-            boxShadow="lg"
-            _hover={{
-              transform: 'translateY(-5px)',
-              boxShadow: 'xl' // You can adjust this value for a more dramatic effect
-            }}
-            transition="transform 0.2s, box-shadow 0.2s" // Shadow to lift the cards off the page
+            boxShadow="lg" // Shadow to lift the cards off the page
           >
             <Image
               src={member.image}
@@ -267,9 +262,9 @@ function TeamSection() {
       </SimpleGrid>
     </Box>
   );
-}
+};
 
-function Footer() {
+const Footer = () => {
   return (
     <Box bg="#8fa88a" color="white" p={10}>
       <Container centerContent maxW="none">
@@ -278,14 +273,14 @@ function Footer() {
           <VStack spacing={4} alignItems="flex-start">
             <Divider borderColor="whiteAlpha.800" />
             <Text fontSize="sm" textAlign="left">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br /> tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim <br /> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-              <br /> commodo consequat.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br/> tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim <br/> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+              <br/> commodo consequat.
             </Text>
             <Divider borderColor="whiteAlpha.800" />
 
           </VStack>
-
+          
           {/* Center block with icons */}
           <VStack gap={3.5}>
             <Text fontSize="5xl" fontWeight="bold" mb={2}>Website</Text>
@@ -301,35 +296,33 @@ function Footer() {
               +84 1234 5678
             </Text>
           </VStack>
-
+          
           {/* Right text block */}
           <VStack alignItems="flex-start" spacing={2}>
-            <Divider borderColor="whiteAlpha.800" />
-            <Link href=''>
-              <Text fontSize="3xl" fontWeight="bold">About Website</Text>
-            </Link>
-            <Link href=''>
-              <Text fontSize="3xl">Terms & Conditions</Text>
-            </Link>
-            <Link href=''>
-              <Text fontSize="3xl">Contact</Text>
-            </Link>
+          <Divider borderColor="whiteAlpha.800" />
+          <Link href=''>
+            <Text fontSize="3xl" fontWeight="bold">About Website</Text>
+          </Link>
+          <Link href=''>
+            <Text fontSize="3xl">Terms & Conditions</Text>
+          </Link>
+          <Link href=''>
+            <Text fontSize="3xl">Contact</Text>
+          </Link>
             <Divider borderColor="whiteAlpha.800" />
           </VStack>
         </Stack>
       </Container>
     </Box>
   );
-}
+};
 
-function Homepage() {
+const Homepage = () => {
   return (
     <Box>
       <Header></Header>
       <Quote></Quote>
-      <AboutSection></AboutSection>
       <DiscussionPage></DiscussionPage>
-      <TeamSection></TeamSection>
       <Footer></Footer>
     </Box>
 
