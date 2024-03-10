@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { ChakraProvider } from '@chakra-ui/react';
 import Homepage from './pages/AdminHome';
+import Members from './pages/Members';
 
 const App: React.FC = () => (
   <ChakraProvider>
@@ -12,6 +13,7 @@ const App: React.FC = () => (
       <Routes>
         <Route path="/Login" element={<Login />} />
         <Route path="/" element={<Homepage />} />
+        <Route path="/Members" element={<Members />} />
         <Route path="/Register" element={<Register />} />
       </Routes>    
     </BrowserRouter>

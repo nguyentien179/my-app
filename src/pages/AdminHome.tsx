@@ -1,8 +1,46 @@
 import {
-  Box, Button, Divider, Heading, Icon, SimpleGrid, Stat, StatLabel, StatNumber, VStack,
+  Avatar,
+  Box, Button, Divider, Flex, Heading, Icon, Link, Select, SimpleGrid, Spacer, Stat, StatLabel, StatNumber, VStack, Image,
 } from '@chakra-ui/react';
-import { Header, Footer, Quote, DiscussionPage } from './Homepage' 
+import { Footer, Quote, DiscussionPage } from './Homepage' 
 import { FaUser, FaNewspaper, FaBell, FaCalendarDay, FaCog, FaDatabase, FaEnvelopeOpenText } from 'react-icons/fa';
+
+export function AdminHeader() {
+  return (
+    <Flex as="header" align="center" padding="1rem" bg="transparent" boxShadow="sm" width="100%">
+      <Link href='/'>
+        <Box p="2">
+          <Image src="path-to-your-logo.svg" alt="Website logo" boxSize="70px" ml="4" />
+        </Box>
+      </Link>
+
+      <Spacer /> {/* This pushes all elements to the right and left sides of the header */}
+
+      <Flex alignItems="center" ml="auto">
+        <Box display="flex" alignItems="center">
+          {/* This container will group the navigation links, language selector, and avatar */}
+
+          <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
+            Newsfeed
+          </Link>
+          <Link href="/" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
+            Home
+          </Link>
+
+          <Select placeholder="Language" width="auto" mr="20">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            {/* More languages */}
+          </Select>
+          
+          {/* Avatar for admin account */}
+          <Avatar name="Admin Account" src="path-to-admin-avatar.jpg" size="md" mr="4" />
+          
+        </Box>
+      </Flex>
+    </Flex>
+  );
+}
 
 const Overview = () => {
   return (
@@ -16,7 +54,10 @@ const Overview = () => {
         <VStack spacing={4} align="stretch">
           <Stat>
             <StatLabel><Icon as={FaUser} mr={2} />Total accounts</StatLabel>
-            <StatNumber>1,024</StatNumber>
+            <Link href='/Members'>
+              <StatNumber textDecoration='underline'>1,024</StatNumber>
+            </Link>
+            
           </Stat>
           <Stat>
             <StatLabel><Icon as={FaNewspaper} mr={2} />Total articles</StatLabel>
@@ -34,9 +75,12 @@ const Overview = () => {
 
         {/* Buttons column */}
         <VStack spacing={4} align="stretch">
-          <Button leftIcon={<FaCog />} colorScheme="teal" variant="solid">
-            Manage accounts
-          </Button>
+          <Link href='Members'> 
+            <Button leftIcon={<FaCog />} colorScheme="teal" variant="solid">
+              Manage accounts
+            </Button>
+          </Link>
+          
           <Button leftIcon={<FaDatabase />} colorScheme="teal" variant="solid">
             System data
           </Button>
@@ -55,7 +99,7 @@ const Overview = () => {
 function Homepage() {
   return (
     <Box>
-      <Header></Header>
+      <AdminHeader></AdminHeader>
       <Quote></Quote>
       <Overview></Overview>
       <DiscussionPage></DiscussionPage>
