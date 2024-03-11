@@ -1,11 +1,18 @@
 import {
   Avatar,
-  Box, Button, Divider, Flex, Heading, Icon, Link, Select, SimpleGrid, Spacer, Stat, StatLabel, StatNumber, VStack, Image,
+  Box, Button, Divider, Flex, Heading, Icon, Link, Select, SimpleGrid, Spacer, Stat, StatLabel, StatNumber, VStack, Image, IconButton, Menu, MenuButton, MenuItem, MenuList,
 } from '@chakra-ui/react';
 import { Footer, Quote, DiscussionPage } from './Homepage' 
 import { FaUser, FaNewspaper, FaBell, FaCalendarDay, FaCog, FaDatabase, FaEnvelopeOpenText } from 'react-icons/fa';
 
 export function AdminHeader() {
+  const notifications = [
+    { id: 1, message: 'New user registered' },
+    { id: 2, message: 'System update available' },
+    { id: 3, message: 'New contact message received' },
+    // ... more notifications
+  ];
+
   return (
     <Flex as="header" align="center" padding="1rem" bg="transparent" boxShadow="sm" width="100%">
       <Link href='/'>
@@ -16,15 +23,15 @@ export function AdminHeader() {
 
       <Spacer /> {/* This pushes all elements to the right and left sides of the header */}
 
-      <Flex alignItems="center" ml="auto">
+      <Flex alignItems="center" ml="auto" mr="auto">
         <Box display="flex" alignItems="center">
           {/* This container will group the navigation links, language selector, and avatar */}
-
-          <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
-            Newsfeed
-          </Link>
           <Link href="/" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
             Home
+          </Link>
+          
+          <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
+            Newsfeed
           </Link>
 
           <Select placeholder="Language" width="auto" mr="20">
@@ -32,10 +39,22 @@ export function AdminHeader() {
             <option value="es">Español</option>
             {/* More languages */}
           </Select>
-          
+
+          {/* Notification bell and dropdown list */}
+          <Menu>
+            <MenuButton as={IconButton} icon={<FaBell />} variant="ghost" position="relative" mr="4" width={10}>
+              {/* If you have a notification count you want to display, you can add a Badge component here */}
+            </MenuButton>
+
+            <MenuList>
+              {notifications.map(notification => (
+                <MenuItem key={notification.id}>{notification.message}</MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
+
           {/* Avatar for admin account */}
-          <Avatar name="Admin Account" src="path-to-admin-avatar.jpg" size="md" mr="4" />
-          
+          <Avatar name="Admin Account" src="path-to-admin-avatar.jpg" size="md" />
         </Box>
       </Flex>
     </Flex>
