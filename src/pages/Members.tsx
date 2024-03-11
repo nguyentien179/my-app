@@ -137,8 +137,9 @@ function MemberTable() {
                                     >
                                     {isAscending ? 'Ascending' : 'Descending'}
                                 </Button>
+                                
                             </Flex>
-
+                            <Divider my={10} borderColor="#426B1F" width='100%'/>
                             {/* Table for member data */}
                             <Table variant="simple">
                                 <Thead>
@@ -152,7 +153,7 @@ function MemberTable() {
                                         <Th fontSize="3xl">Options</Th>
                                     </Tr>
                                 </Thead>
-                                <Divider my={4} borderColor="#426B1F" width='100%'/>
+                                <Divider my={4} borderColor="#fff"/>
                                 <Tbody>
                                     {members.map((member) => (
                                         <Tr bg="rgba(137, 188, 93, 0.2)" key={member.id} _hover={{bg: 'rgba(73,133,23,0.5)', boxShadow: {boxShadowColor}, transform: 'translateY(-2px)'}} transition="background-color 0.2s, box-shadow 0.2s, transform 0.2s">
