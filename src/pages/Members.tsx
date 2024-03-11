@@ -178,9 +178,12 @@ function MemberTable() {
                             </Table>
                         </Box>
                         {/* Button to add new member */}
-                        <Button leftIcon={<FaUserPlus />} bg="#2d4b12" color='#fff' variant="solid" onClick={onOpen} mt={8}>
-                            Add an account
-                        </Button>
+                        <Link href='/Add'>
+                            <Button leftIcon={<FaUserPlus />} bg="#2d4b12" color='#fff' variant="outline" colorScheme='green' onClick={onOpen} mt={8} _hover={{ bg:"#fff", color:'#2d4b12'}} _focus={{ boxShadow: "none" }}>
+                                Add an account
+                            </Button>
+                        </Link>
+                        
                         {/* Drawer for adding a new member */}
                         <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
                             <DrawerOverlay />
