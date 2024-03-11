@@ -72,7 +72,7 @@ function SendNotif() {
                             </Stack>
                             </CheckboxGroup>
                         </FormControl>
-                        <Button type="submit" bg="#2d4b12" color="white" mt={6} width="full" _hover={{ bg: "#1e3810" }}>
+                        <Button type="submit" bg="#2d4b12" color='#fff' variant="outline" colorScheme='green' mt={8} _hover={{ bg:"#fff", color:'#2d4b12'}} _focus={{ boxShadow: "none" }}>
                             Send
                         </Button>
                         </form>
