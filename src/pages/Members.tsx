@@ -71,21 +71,27 @@ import { useState } from 'react';
       },
   ];
   
-export function Sidebar() {
+function Sidebar() {
     return (
         <Box w="250px" bg="#2d4b12" color="white" p={5}>
-                <Link href='/Members'>
-                    <VStack align="stretch" spacing={16} mt={20}>
-                        <Button bg="whitesmoke" leftIcon={<FaUserCog  />}>Manage accounts</Button>
-                        <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaDatabase  />}>System Data</Button>
-                        <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBell  />}>Send Notifications</Button>
-                        <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser  />}>My Account</Button>
-                    </VStack>
-                </Link>
                 
+                    <VStack align="stretch" spacing={16} mt={20}>
+                        <Link href='/Members'>
+                            <Button bg="whitesmoke" leftIcon={<FaUserCog  />}>Manage accounts</Button>
+                        </Link>
+                        <Link>
+                            <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaDatabase  />}>System Data</Button>
+                        </Link>
+                        <Link href='/SendNotif'>
+                            <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBell  />}>Send Notifications</Button>
+                        </Link>
+                        <Link>
+                            <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser  />}>My Account</Button>
+                        </Link>
+                    </VStack>
                 {/* Footer */}
                 <Text position="absolute" bottom={5} left={5} fontSize="sm">Copyright Website 2024</Text>
-            </Box>
+        </Box>
     )
 }
 
