@@ -32,10 +32,7 @@ import {
   import {
     FaUserPlus,
     FaEllipsisV,
-    FaChevronUp,
-    FaChevronDown,
     FaSearch,
-    FaSort,
     FaSortAmountDown,
     FaSortAmountUp,
     FaBell,
