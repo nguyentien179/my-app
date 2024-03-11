@@ -103,9 +103,12 @@ const Overview = () => {
           <Button leftIcon={<FaDatabase />} colorScheme="teal" variant="solid">
             System data
           </Button>
-          <Button leftIcon={<FaEnvelopeOpenText />} colorScheme="teal" variant="solid">
-            Send notifications
-          </Button>
+          <Link href='SendNotif'>
+            <Button leftIcon={<FaEnvelopeOpenText />} colorScheme="teal" variant="solid">
+              Send notifications
+            </Button>
+          </Link>
+          
           <Button leftIcon={<FaUser />} colorScheme="teal" variant="solid">
             My account
           </Button>
