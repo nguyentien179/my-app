@@ -25,15 +25,15 @@ function AddForm() {
                             <Heading as="h1" size="2xl" color="#2d4b12" my={4}>Add an account</Heading>
                             <FormControl id="fullName">
                                 <FormLabel>Full name</FormLabel>
-                                <Input type="text" placeholder="Ex: Tony Lavon" />
+                                <Input type="text" placeholder="Ex: Tony Lavon" isRequired/>
                             </FormControl>
                             <FormControl id="email">
                                 <FormLabel>Email address</FormLabel>
-                                <Input type="email" placeholder="Ex: tony@website.edu" />
+                                <Input type="email" placeholder="Ex: tony@website.edu" isRequired/>
                             </FormControl>
                             <FormControl id="password">
                                 <FormLabel>Password</FormLabel>
-                                <Input type="password" placeholder="Ex: 123456" />
+                                <Input type="password" placeholder="Ex: 123456" isRequired/>
                             </FormControl>
                             <FormControl id="role">
                                 <FormLabel>Role</FormLabel>
@@ -45,6 +45,16 @@ function AddForm() {
                                     <option value="Admin">Administrator</option>
                                     <option value="Guest">Guest</option>
                                 </Select>
+                            </FormControl>
+                            <FormControl>
+                                <FormLabel>
+                                    <Select placeholder='Select Major'>
+                                        <option value="Photography"> </option>
+                                        <option value="CompScience"> </option>
+                                        <option value="Design"> </option>
+                                        <option value="None"> </option>
+                                    </Select>
+                                </FormLabel>
                             </FormControl>
                             <FormControl id="faculty">
                                 <FormLabel>Faculty</FormLabel>

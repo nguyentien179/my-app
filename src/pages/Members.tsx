@@ -73,20 +73,20 @@ import { useState } from 'react';
   
 function Sidebar() {
     return (
-        <Box w="250px" bg="#2d4b12" color="white" p={5}>
+        <Box w="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center">
                 
-                    <VStack align="stretch" spacing={16} mt={20}>
+                    <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
                         <Link href='/Members'>
-                            <Button bg="whitesmoke" leftIcon={<FaUserCog  />}>Manage accounts</Button>
+                            <Button bg="whitesmoke" w='300px' leftIcon={<FaUserCog  />}>Manage accounts</Button>
                         </Link>
                         <Link>
-                            <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaDatabase  />}>System Data</Button>
+                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaDatabase  />}>System Data</Button>
                         </Link>
                         <Link href='/SendNotif'>
-                            <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBell  />}>Send Notifications</Button>
+                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBell  />}>Send Notifications</Button>
                         </Link>
                         <Link>
-                            <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser  />}>My Account</Button>
+                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser  />}>My Account</Button>
                         </Link>
                     </VStack>
                 {/* Footer */}
