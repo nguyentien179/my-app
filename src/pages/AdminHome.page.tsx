@@ -1,9 +1,11 @@
 import {
   Avatar,
-  Box, Button, Divider, Flex, Heading, Icon, Link, Select, SimpleGrid, Spacer, Stat, StatLabel, StatNumber, VStack, Image, IconButton, Menu, MenuButton, MenuItem, MenuList,
+  Box, Button, Divider, Flex, Heading, Icon, Link, Select, SimpleGrid, Spacer, Stat, StatLabel, StatNumber, VStack, Image, IconButton, Menu, MenuButton, MenuItem, MenuList, Tooltip,
 } from '@chakra-ui/react';
 import { Footer, Quote, DiscussionPage } from './Homepage.page' 
 import { FaUser, FaNewspaper, FaBell, FaCalendarDay, FaCog, FaDatabase, FaEnvelopeOpenText } from 'react-icons/fa';
+import { AddIcon } from '@chakra-ui/icons';
+import { useNavigate } from 'react-router-dom';
 
 export function AdminHeader() {
   const notifications = [
@@ -118,7 +120,14 @@ const Overview = () => {
   );
 };
 
+
+
 function Homepage() {
+  const navigate = useNavigate();
+  const handleAddButtonClick = () => {
+    navigate('/CreatePost');
+    // Additional logic when the plus button is clicked
+  };
   return (
     <Box>
       <AdminHeader></AdminHeader>
@@ -126,6 +135,26 @@ function Homepage() {
       <Overview></Overview>
       <DiscussionPage></DiscussionPage>
       <Footer></Footer>
+      <Tooltip label="Create a Post" fontSize="md" placement="left" hasArrow>
+      <IconButton
+        aria-label="Add new post"
+        icon={<AddIcon />}
+        bg="#426B1F"
+        color='#fff'
+        variant="solid"
+        size="lg"
+        colorScheme='green'
+        isRound={true}
+        position="fixed"
+        bottom="1em" // Adjust the distance from the bottom
+        right="1em" // Adjust the distance from the right
+        zIndex="tooltip" // Ensure the button is above most other items
+        onClick={handleAddButtonClick}
+        boxShadow="0px 4px 12px rgba(0, 0, 0, 0.15)"
+        width="80px" // Set a specific width
+        height="80px" // Set a specific height
+        fontSize="40px"
+      /></Tooltip>
     </Box>
 
   );
