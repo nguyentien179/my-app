@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Login from './pages/Login.page';
+import Register from './pages/Register.page';
 import { ChakraProvider } from '@chakra-ui/react';
-import Homepage from './pages/AdminHome';
-import Members from './pages/Members';
-import Add from './pages/Add';
-import SendNotif from './pages/SendNotification';
+import Homepage from './pages/AdminHome.page';
+import Members from './pages/Members.page';
+import Add from './pages/Add.page';
+import SendNotif from './pages/SendNotification.page';
 
 const App: React.FC = () => (
   <ChakraProvider>
