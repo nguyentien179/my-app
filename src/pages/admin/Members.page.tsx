@@ -28,8 +28,8 @@ import {
     Icon,
     useColorModeValue,
     Divider,
-  } from '@chakra-ui/react';
-  import {
+} from '@chakra-ui/react';
+import {
     FaUserPlus,
     FaEllipsisV,
     FaSearch,
@@ -39,12 +39,12 @@ import {
     FaDatabase,
     FaUser,
     FaUserCog,
-  } from 'react-icons/fa';
+} from 'react-icons/fa';
 import { AdminHeader } from './AdminHome.page';
 import { useState } from 'react';
-  
+
   // Example members data
-  const members = [
+const members = [
     {
         id: 'P0001',
         name: 'Nicky Nicknack',
@@ -52,25 +52,25 @@ import { useState } from 'react';
         role: 'Student',
         major: 'Photography',
         faculty: 'Faculty A',
-      },
-      {
+    },
+    {
         id: 'CS001',
         name: 'Mandy Chow',
         email: 'mandy@website.edu',
         role: 'Student',
         major: 'Computer Science',
         faculty: 'Faculty A',
-      },
-      {
+    },
+    {
         id: 'CS002',
         name: 'Kaling Bling',
         email: 'kaling@website.edu',
         role: 'Student',
         major: 'Computer Science',
         faculty: 'Faculty B',
-      },
-  ];
-  
+    },
+];
+
 function Sidebar() {
     return (
         <Box w="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center">
@@ -100,7 +100,7 @@ function MemberTable() {
     const [isAscending, setIsAscending] = useState(true);
     const boxShadowColor = useColorModeValue('0px 2px 12px rgba(130,148,116,0.8)', '0px 2px 12px rgba(130,148,116,0.8)');
     const toggleSortOrder = () => {
-      setIsAscending(!isAscending);
+        setIsAscending(!isAscending);
     };
     return (
         <Box flex="1" bgGradient="linear(to-t, #e1f5dd, white)" p={5}>
