@@ -40,7 +40,7 @@ import {
     FaUser,
     FaUserCog,
   } from 'react-icons/fa';
-import { AdminHeader } from './AdminHome';
+import { AdminHeader } from './AdminHome.page';
 import { useState } from 'react';
   
   // Example members data

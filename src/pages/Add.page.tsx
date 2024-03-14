@@ -9,7 +9,7 @@ import {
     useColorModeValue,
     Heading
   } from '@chakra-ui/react';
-import { AdminHeader } from './AdminHome';
+import { AdminHeader } from './AdminHome.page';
 
 
 function AddForm() {

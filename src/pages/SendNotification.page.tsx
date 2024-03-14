@@ -1,6 +1,6 @@
 import { VStack, Button, Box, Text, Link, FormControl, FormLabel, Input, Heading, Textarea, CheckboxGroup, Stack, Checkbox, Flex, useColorModeValue} from "@chakra-ui/react";
 import { FaUserCog, FaDatabase, FaBell, FaUser } from "react-icons/fa";
-import { AdminHeader } from "./AdminHome";
+import { AdminHeader } from "./AdminHome.page";
 
 function Sidebar() {
     return (

@@ -3,7 +3,7 @@ const passport = require('passport');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt')
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,6 +42,7 @@ const UserSchema = new mongoose.Schema({
 const User = mongoose.model('User', UserSchema);
 
 // Passport Local Strategy
+// eslint-disable-next-line no-undef
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
