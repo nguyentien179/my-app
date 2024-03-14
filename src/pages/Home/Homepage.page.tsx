@@ -22,13 +22,13 @@ import {
   Container,
   Icon,
 } from '@chakra-ui/react';
-import about from "../assets/seven-shooter-hPKTYwJ4FUo-unsplash.jpg"
+import about from "../../assets/seven-shooter-hPKTYwJ4FUo-unsplash.jpg"
 import { SearchIcon } from '@chakra-ui/icons';
 import { FaFacebook, FaTwitter, FaEnvelope } from 'react-icons/fa';
-import post1 from "../assets/post 1.jpg"
-import ceo1 from "../assets/ceo1.png"
-import ceo2 from "../assets/ceo2.jpg"
-import ceo3 from "../assets/ceo3.jpg"
+import post1 from "../../assets/post 1.jpg"
+import ceo1 from "../../assets/ceo1.png"
+import ceo2 from "../../assets/ceo2.jpg"
+import ceo3 from "../../assets/ceo3.jpg"
 
 export function Header() {
 
