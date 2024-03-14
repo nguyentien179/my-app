@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, LoginImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, Checkbox, SocialIconsContainer, SubmitButton, CheckboxLabel, SignUpLink, SignUpText, SocialIcons, SocialIconsLink } from "../components/Login.styles"
-import { Link } from "react-router-dom";
 
-const FormWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-`;
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');

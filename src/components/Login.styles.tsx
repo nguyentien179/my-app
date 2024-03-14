@@ -13,6 +13,7 @@ export const LoginPageContainer = styled.div`
     align-items: center;
     justify-content: center;
     width: 100vw;
+    background: rgba(0, 0, 0);
     @media (max-width: ${breakpoints.tablet}) {
 
     };
