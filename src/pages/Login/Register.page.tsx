@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LoginPageContainer, RegImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink, SignUpLink, SignUpText } from '../components/Login.styles';
+import { LoginPageContainer, RegImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink, SignUpLink, SignUpText } from '../../components/Login.styles';
 
 const Register: React.FC = () => {
     const [formData, setFormData] = useState({
