@@ -8,7 +8,7 @@ import {
     Button,
     useColorModeValue,
     Heading
-  } from '@chakra-ui/react';
+} from '@chakra-ui/react';
 import { AdminHeader } from './AdminHome.page';
 
 
@@ -108,5 +108,5 @@ function Add() {
     );
 }
   
-  export default Add;
+export default Add;
   
