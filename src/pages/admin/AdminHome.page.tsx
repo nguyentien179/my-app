@@ -6,7 +6,7 @@ import { Footer, Quote, DiscussionPage } from '../home/Homepage.page'
 import { FaUser, FaNewspaper, FaBell, FaCalendarDay, FaCog, FaDatabase, FaEnvelopeOpenText } from 'react-icons/fa';
 import { AddIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../../assets/logo.png'
 export function AdminHeader() {
   const notifications = [
     { id: 1, message: 'New user registered' },
@@ -19,7 +19,7 @@ export function AdminHeader() {
     <Flex as="header" align="center" padding="1rem" bg="transparent" boxShadow="sm" width="100%">
       <Link href='/'>
         <Box p="2">
-          <Image src="path-to-your-logo.svg" alt="Website logo" boxSize="70px" ml="4" />
+          <Image src={logo} alt="Website logo" boxSize="70px" ml="4" />
         </Box>
       </Link>
 

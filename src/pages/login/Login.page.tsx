@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { CheckboxContainer, Divider, FooterLink, FooterLinksContainer, ForgotPasswordLink, LoginImageContainer, Input, Label, LoginFormContainer, LoginPageContainer, Logo, Checkbox, SocialIconsContainer, SubmitButton, CheckboxLabel, SignUpLink, SignUpText, SocialIcons, SocialIconsLink } from "../../components/Login.styles"
+import logo from '../../assets/logo.png'
 
 
 const Login: React.FC = () => {
@@ -17,7 +18,7 @@ const Login: React.FC = () => {
         <LoginPageContainer>
             <LoginImageContainer />
             <LoginFormContainer>
-                <Logo src="../logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
+                <Logo src={logo} alt="Logo" />
                     <form>
                         <Label htmlFor="email">Enter your school email</Label>
                         <Input type="email" id="email" name="email" placeholder="" required />

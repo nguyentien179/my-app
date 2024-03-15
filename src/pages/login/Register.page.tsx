@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LoginPageContainer, RegImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink, SignUpLink, SignUpText } from '../../components/Login.styles';
+import logo from '../../assets/logo.png'
 
 const Register: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ const Register: React.FC = () => {
       <LoginPageContainer>
         <RegImageContainer />
         <LoginFormContainer>
-            <Logo src="../logo.jpg" alt="Logo" /> {/* Replace with your logo path */}
+            <Logo src={logo} alt="Logo" /> {/* Replace with your logo path */}
               <form>
                 <Label htmlFor="fullName">Full Name</Label>
                 <Input type="fullName" id="fullName" name="fullName" placeholder="" required />                    

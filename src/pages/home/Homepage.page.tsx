@@ -29,13 +29,14 @@ import post1 from "../../assets/post 1.jpg"
 import ceo1 from "../../assets/ceo1.png"
 import ceo2 from "../../assets/ceo2.jpg"
 import ceo3 from "../../assets/ceo3.jpg"
+import logo from '../../assets/logo.png'
 
 export function Header() {
 
   return (
     <Flex as="header" align="center" padding="1rem" bg="white" boxShadow="sm" width="100%">
       <Box p="2">
-        <Image src="path-to-your-logo.svg" alt="Website logo" boxSize="70px" ml="4" />
+        <Image src={logo} alt="Website logo" boxSize="70px" ml="4" />
       </Box>
 
       <Spacer /> {/* This pushes all elements to the right and left sides of the header */}
