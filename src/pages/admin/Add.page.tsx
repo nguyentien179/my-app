@@ -49,10 +49,10 @@ function AddForm() {
                             <FormControl>
                                 <FormLabel>
                                     <Select placeholder='Select Major'>
-                                        <option value="Photography"> </option>
-                                        <option value="CompScience"> </option>
-                                        <option value="Design"> </option>
-                                        <option value="None"> </option>
+                                        <option value="Photography">Photography</option>
+                                        <option value="CompScience">CompScience</option>
+                                        <option value="Design">Design</option>
+                                        <option value="None">None</option>
                                     </Select>
                                 </FormLabel>
                             </FormControl>
