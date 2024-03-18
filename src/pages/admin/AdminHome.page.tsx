@@ -101,7 +101,7 @@ const Overview = () => {
               Manage accounts
             </Button>
           </Link>
-          <Link>
+          <Link href=''>
             <Button leftIcon={<FaDatabase />} colorScheme="teal" variant="solid">
               System data
             </Button>
@@ -112,7 +112,7 @@ const Overview = () => {
               Send notifications
             </Button>
           </Link>
-          <Link>
+          <Link href=''>
             <Button leftIcon={<FaUser />} colorScheme="teal" variant="solid">
               My account
             </Button>
