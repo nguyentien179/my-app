@@ -19,7 +19,7 @@ import { CloseIcon } from '@chakra-ui/icons';
 import { AdminHeader } from './AdminHome.page';
 import { useNavigate } from 'react-router-dom';
 
-function CreatePost() {
+function CreateTopic() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageSrc, setImageSrc] = useState('');
@@ -46,8 +46,8 @@ function CreatePost() {
     e.preventDefault();
     // Form submission logic here
     toast({
-      title: 'Post created.',
-      description: "We've created your post for you.",
+      title: 'Topic created.',
+      description: "We've created your topic for you.",
       status: 'success',
       duration: 9000,
       isClosable: true,
@@ -74,11 +74,11 @@ function CreatePost() {
           p={8}
           width={{ base: "90%", md: "768px" }} // Increased width for medium-sized devices and up
         >
-          <Heading as="h2" size="lg" mb={4} textColor="#426B1F" textAlign="center">Create a Post</Heading>
+          <Heading as="h2" size="lg" mb={4} textColor="#426B1F" textAlign="center">Create a Topic</Heading>
           <Divider my={4} borderColor="#426B1F" width='100%'/>
           <VStack as="form" onSubmit={handleSubmit} spacing={6}>
-            <FormControl id="post-title" isRequired>
-              <FormLabel>Post title</FormLabel>
+            <FormControl id="topic-title" isRequired>
+              <FormLabel>Topic title</FormLabel>
               <Input
                 placeholder="Boxed water is better !!!"
                 value={title}
@@ -86,7 +86,7 @@ function CreatePost() {
                 size="lg" // Increased size for larger input
               />
             </FormControl>
-            <FormControl id="post-description" isRequired>
+            <FormControl id="topic-description" isRequired>
               <FormLabel>Description</FormLabel>
               <Textarea
                 placeholder="Description (200 words max)"
@@ -96,7 +96,9 @@ function CreatePost() {
                 size="lg" // Increased size for larger textarea
               />
             </FormControl>
-            <Box width="full">
+            <FormControl id='image'>
+              <FormLabel>Image</FormLabel>
+              <Box width="full">
               {imageSrc && (
                 <Box position="relative" textAlign="center">
                   <Image src={imageSrc} maxH="400px" alt="Uploaded image preview" />
@@ -121,12 +123,14 @@ function CreatePost() {
                 width="full" // Stretch the input to take full width
               />
             </Box>
+            </FormControl>
+            
             <HStack width="full" justifyContent="space-between">
               <Button width="full" mr={2} onClick={handleBack} colorScheme="#f7f7f7" color='#2d4b12' variant="ghost" > 
               Back
               </Button>
               <Button width="full" ml={2} colorScheme="green" bg="#2d4b12" color='white' variant="ghost"  _hover={{ bg:"grey", color:'#2d4b12', transform: 'translateY(-2px)'}} _focus={{ boxShadow: "none" }} transition="background-color 0.2s, box-shadow 0.2s, transform 0.2s">
-                Post
+                Topic
               </Button>
             </HStack>
           </VStack>
@@ -136,4 +140,4 @@ function CreatePost() {
   );
 }
 
-export default CreatePost;
+export default CreateTopic;

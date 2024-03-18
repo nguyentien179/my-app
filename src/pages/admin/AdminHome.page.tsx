@@ -2,7 +2,7 @@ import {
   Avatar,
   Box, Button, Divider, Flex, Heading, Icon, Link, Select, SimpleGrid, Spacer, Stat, StatLabel, StatNumber, VStack, Image, IconButton, Menu, MenuButton, MenuItem, MenuList, Tooltip,
 } from '@chakra-ui/react';
-import { Footer, Quote, DiscussionPage } from '../home/Homepage.page' 
+import { Footer, Quote, DiscussionPage } from '../home/Home.page' 
 import { FaUser, FaNewspaper, FaBell, FaCalendarDay, FaCog, FaDatabase, FaEnvelopeOpenText } from 'react-icons/fa';
 import { AddIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
@@ -139,9 +139,9 @@ function Homepage() {
       <Overview></Overview>
       <DiscussionPage></DiscussionPage>
       <Footer></Footer>
-      <Tooltip label="Create a Post" fontSize="md" placement="left" hasArrow>
+      <Tooltip label="Add a topic" fontSize="md" placement="left" hasArrow>
       <IconButton
-        aria-label="Add new post"
+        aria-label="Add new topic"
         icon={<AddIcon />}
         bg="#426B1F"
         color='#fff'

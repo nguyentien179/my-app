@@ -291,7 +291,7 @@ export function Footer() {
           <VStack gap={3.5}>
             <Text fontSize="5xl" fontWeight="bold" mb={2}>Website</Text>
             <HStack spacing={4}>
-              <Icon as={FaFacebook} w={10} h={10} />
+              <Icon as={FaFacebook} w={10} h={10} href='/' />
               <Icon as={FaTwitter} w={10} h={10} />
               <Icon as={FaEnvelope} w={10} h={10} />
             </HStack>
