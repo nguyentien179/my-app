@@ -75,7 +75,9 @@ function CreateTopic() {
           width={{ base: "90%", md: "768px" }} // Increased width for medium-sized devices and up
         >
           <Heading as="h2" size="lg" mb={4} textColor="#426B1F" textAlign="center">Create a Topic</Heading>
+
           <Divider my={4} borderColor="#426B1F" width='100%'/>
+          
           <VStack as="form" onSubmit={handleSubmit} spacing={6}>
             <FormControl id="topic-title" isRequired>
               <FormLabel>Topic title</FormLabel>
