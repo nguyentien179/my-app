@@ -101,19 +101,23 @@ const Overview = () => {
               Manage accounts
             </Button>
           </Link>
+          <Link>
+            <Button leftIcon={<FaDatabase />} colorScheme="teal" variant="solid">
+              System data
+            </Button>
+          </Link>
           
-          <Button leftIcon={<FaDatabase />} colorScheme="teal" variant="solid">
-            System data
-          </Button>
           <Link href='SendNotif'>
             <Button leftIcon={<FaEnvelopeOpenText />} colorScheme="teal" variant="solid">
               Send notifications
             </Button>
           </Link>
+          <Link>
+            <Button leftIcon={<FaUser />} colorScheme="teal" variant="solid">
+              My account
+            </Button>
+          </Link>
           
-          <Button leftIcon={<FaUser />} colorScheme="teal" variant="solid">
-            My account
-          </Button>
         </VStack>
       </SimpleGrid>
     </Box>
