@@ -124,7 +124,7 @@ function Dashboard() {
           <List spacing={6} width="100%">
             {topics.map((topic) => (
               <ListItem key={topic.id}>
-                <Flex align="center" bg="white" p={4} borderRadius="lg" boxShadow="base">
+                <Flex align="center" bg="white" p={4} borderRadius="lg" boxShadow="base" _hover={{transform: "translateY(-4px)", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"}} transition="background-color 0.2s, box-shadow 0.2s transform 0.4s">
                   <Box boxSize="50px" mr={4} bg="purple.100" borderRadius="md" >
                   <Image src={topic.icon} boxSize="50px" mr={4} borderRadius="md" /> {/* Placeholder for icon */}
                   </Box>
