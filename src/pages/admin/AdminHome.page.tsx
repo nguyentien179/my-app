@@ -129,7 +129,7 @@ const Overview = () => {
 function Homepage() {
   const navigate = useNavigate();
   const handleAddButtonClick = () => {
-    navigate('/CreatePost');
+    navigate('/CreateTopic');
     // Additional logic when the plus button is clicked
   };
   return (
