@@ -7,13 +7,11 @@ import {
     SimpleGrid,
     IconButton,
     Circle,
-    HStack,
     List,
     ListItem,
     Image,
     Tag,
     Button,
-    Spacer,
     Tooltip,
   } from '@chakra-ui/react';
 import { AddIcon, ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
@@ -67,12 +65,12 @@ function Dashboard() {
 
   // Status button component
   const StatusButton : React.FC<{ status: StatusType }> = ({ status }) => {
-    let colorScheme = 'gray';
-    if (status === 'In progress') colorScheme = 'green';
-    if (status === 'Expired') colorScheme = 'red';
-    if (status === 'Upcoming') colorScheme = 'yellow';
+    let color = 'gray';
+    if (status === 'In progress') color = '#426B1F';
+    if (status === 'Expired') color = '#6B1F1F';
+    if (status === 'Upcoming') color = '#BEC05B';
     
-    return <Tag fontSize="lg" width='140px' height='50px' display='flex' alignItems='center' justifyContent='center' borderRadius="full" variant="solid" colorScheme={colorScheme}>{status}</Tag>;
+    return <Tag fontSize="lg" fontWeight='bold' width='140px' height='50px' display='flex' alignItems='center' justifyContent='center' borderRadius="full" variant="solid" bg={color} color='white'>{status}</Tag>;
 };
 
   return (
