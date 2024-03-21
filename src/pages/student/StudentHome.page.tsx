@@ -13,6 +13,7 @@ import {
     Tag,
     Button,
     Tooltip,
+    Link
   } from '@chakra-ui/react';
 import { AddIcon, ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { AdminHeader } from '../admin/AdminHome.page';
@@ -135,9 +136,12 @@ function Dashboard() {
               </ListItem>
             ))}
           </List>
-          <Button size="lg" width='100%' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
-            Make a post now!
-          </Button>
+          <Link href='/CreatePost' width='100%'>
+            <Button size="lg" width='100%' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
+              Make a post now!
+            </Button>
+          </Link>
+          
         </VStack>
     </Flex>
     
