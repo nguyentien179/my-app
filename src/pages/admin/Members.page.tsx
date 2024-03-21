@@ -170,7 +170,7 @@ function MemberTable() {
                                             <Td>
                                                 <Menu>
                                                     <MenuButton as={IconButton} icon={<FaEllipsisV />} />
-                                                    <MenuList zIndex={10}>
+                                                    <MenuList>
                                                         <MenuItem>View</MenuItem>
                                                         <MenuItem>Update</MenuItem>
                                                         <MenuItem>Delete</MenuItem>
