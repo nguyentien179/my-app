@@ -72,7 +72,7 @@ function Dashboard() {
     if (status === 'Upcoming') color = '#BEC05B';
     
     return <Tag fontSize="lg" fontWeight='bold' width='140px' height='50px' display='flex' alignItems='center' justifyContent='center' borderRadius="full" variant="solid" bg={color} color='white'>{status}</Tag>;
-};
+  };
 
   return (
     <Flex direction={['column', 'row']} width="100%">

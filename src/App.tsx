@@ -12,6 +12,7 @@ import CreateTopicForm from './pages/admin/CreateTopic.page';
 import AdminHome from './pages/admin/AdminHome.page';
 import CreatePostForm from './pages/student/CreatePost.page';
 import StudentHome from './pages/student/StudentHome.page';
+import ViewTopics from './pages/admin/Topics.page'
 
 const App: React.FC = () => (
   <ChakraProvider>
@@ -24,7 +25,8 @@ const App: React.FC = () => (
         <Route path="/Register" element={<Register />} />
         <Route path="/Add" element={<Add />} />
         <Route path="/SendNotif" element={<SendNotif />} />
-        <Route path='/CreateTopic' element={<CreateTopicForm/>} />
+        <Route path='/CreateTopic' element={<CreateTopicForm/>} /> 
+        <Route path='/ViewTopics' element={<ViewTopics/>} /> 
         <Route path='/Student' element={<StudentHome/>} />
         <Route path='/CreatePost' element={<CreatePostForm/>} />
       </Routes>    

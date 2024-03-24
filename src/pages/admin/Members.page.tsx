@@ -39,9 +39,13 @@ import {
     FaDatabase,
     FaUser,
     FaUserCog,
+    FaAirbnb,
+    FaApple,
+    FaBacon,
 } from 'react-icons/fa';
 import { AdminHeader } from './AdminHome.page';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
   // Example members data
 const members = [
@@ -71,28 +75,36 @@ const members = [
     },
 ];
 
-function Sidebar() {
+export function AdminSidebar() {
+    const location = useLocation();
+    const activeLinkStyle = {
+        bg: "whitesmoke", // A different background color to indicate active state
+        color: 'white',
+    };
+
+    const isActive = (path: any) => location.pathname === path;
+
     return (
-        <Box w="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center">
-                
-                    <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
-                        <Link href='/Members'>
-                            <Button bg="whitesmoke" w='300px' leftIcon={<FaUserCog  />}>Manage accounts</Button>
-                        </Link>
-                        <Link>
-                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaDatabase  />}>System Data</Button>
-                        </Link>
-                        <Link href='/SendNotif'>
-                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBell  />}>Send Notifications</Button>
-                        </Link>
-                        <Link>
-                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser  />}>My Account</Button>
-                        </Link>
-                    </VStack>
-                {/* Footer */}
-                <Text position="absolute" bottom={5} left={5} fontSize="sm">Copyright Website 2024</Text>
+        <Box minW="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center" minH="100vh" // Minimum height to match the viewport height
+        overflowY="auto">
+            <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
+                <Link href='/Members' style={isActive('/Members') ? activeLinkStyle : {}}>
+                    <Button bg={isActive('/Members') ? 'whitesmoke' : 'whitesmoke'} w='300px' leftIcon={<FaUserCog />}>Manage accounts</Button>
+                </Link>
+                <Link href='/ViewTopics' style={isActive('/ViewTopics') ? activeLinkStyle : {}}>
+                    <Button variant="outline" color={isActive('/ViewTopics') ? 'white' : 'whitesmoke'} w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBacon />}>View Topics</Button>
+                </Link>
+                <Link href='/SendNotif' style={isActive('/SendNotif') ? activeLinkStyle : {}}>
+                    <Button variant="outline" color={isActive('/SendNotif') ? 'white' : 'whitesmoke'} w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBell />}>Send Notifications</Button>
+                </Link>
+                <Link href='/MyAccount' style={isActive('/MyAccount') ? activeLinkStyle : {}}>
+                    <Button variant="outline" color={isActive('/MyAccount') ? 'white' : 'whitesmoke'} w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser />}>My Account</Button>
+                </Link>
+            </VStack>
+            {/* Footer */}
+            <Text position="absolute" bottom={5} left={5} fontSize="sm">Copyright Website 2024</Text>
         </Box>
-    )
+    );
 }
 
 function MemberTable() {
@@ -208,7 +220,7 @@ function Members() {
             <AdminHeader/>
             <Flex h="100vh" overflowY="hidden">
                 {/* Sidebar */}
-                <Sidebar/>
+                <AdminSidebar/>
 
                 {/* Main content */}
                 <MemberTable/>
