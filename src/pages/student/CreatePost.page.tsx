@@ -22,11 +22,16 @@ import {
   ModalCloseButton,
   ModalBody,
   useDisclosure,
-  Checkbox
+  Checkbox,
+  Link,
+  Text
 } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { AdminHeader } from '../admin/AdminHome.page';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { FaBacon, FaBell, FaUser, FaUserCog } from 'react-icons/fa';
+import { Link as RouterLink } from 'react-router-dom';
+
 
 function CreatePost() {
   const [title, setTitle] = useState('');

@@ -36,16 +36,14 @@ import {
     FaSortAmountDown,
     FaSortAmountUp,
     FaBell,
-    FaDatabase,
     FaUser,
     FaUserCog,
-    FaAirbnb,
-    FaApple,
     FaBacon,
 } from 'react-icons/fa';
 import { AdminHeader } from './AdminHome.page';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
   // Example members data
 const members = [
@@ -77,10 +75,6 @@ const members = [
 
 export function AdminSidebar() {
     const location = useLocation();
-    const activeLinkStyle = {
-        bg: "whitesmoke", // A different background color to indicate active state
-        color: 'white',
-    };
 
     const isActive = (path: any) => location.pathname === path;
 
@@ -88,17 +82,39 @@ export function AdminSidebar() {
         <Box minW="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center" minH="100vh" // Minimum height to match the viewport height
         overflowY="auto">
             <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
-                <Link href='/Members' style={isActive('/Members') ? activeLinkStyle : {}}>
-                    <Button bg={isActive('/Members') ? 'whitesmoke' : 'whitesmoke'} w='300px' leftIcon={<FaUserCog />}>Manage accounts</Button>
+            <Link as={RouterLink} to='/Members'>
+                <Button bg={isActive('/Members') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Members') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                        leftIcon={<FaUserCog />} 
+                        color={isActive('/Members') ? '#2d4b12' : 'whitesmoke'} 
+                        w='300px'
+                        variant='outline'>
+                    Manage accounts
+                </Button>
+            </Link>
+            <Link as={RouterLink} to='/ViewTopics'>
+                <Button bg={isActive('/ViewTopics') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/ViewTopics') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                        leftIcon={<FaBacon />} 
+                        color={isActive('/ViewTopics') ? '#2d4b12' : 'whitesmoke'} 
+                        w='300px'
+                        variant='outline'>View Topics</Button>
                 </Link>
-                <Link href='/ViewTopics' style={isActive('/ViewTopics') ? activeLinkStyle : {}}>
-                    <Button variant="outline" color={isActive('/ViewTopics') ? 'white' : 'whitesmoke'} w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBacon />}>View Topics</Button>
+                <Link as={RouterLink} to='/SendNotif'>
+                <Button bg={isActive('/SendNotif') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/SendNotif') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                        leftIcon={<FaBell />} 
+                        color={isActive('/SendNotif') ? '#2d4b12' : 'whitesmoke'} 
+                        w='300px'
+                        variant='outline'>Send Notifications</Button>
                 </Link>
-                <Link href='/SendNotif' style={isActive('/SendNotif') ? activeLinkStyle : {}}>
-                    <Button variant="outline" color={isActive('/SendNotif') ? 'white' : 'whitesmoke'} w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBell />}>Send Notifications</Button>
-                </Link>
-                <Link href='/MyAccount' style={isActive('/MyAccount') ? activeLinkStyle : {}}>
-                    <Button variant="outline" color={isActive('/MyAccount') ? 'white' : 'whitesmoke'} w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser />}>My Account</Button>
+                <Link as={RouterLink} to='/MyAccount'>
+                <Button bg={isActive('/MyAccount') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/MyAccount') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                        leftIcon={<FaUser />} 
+                        color={isActive('/MyAccount') ? '#2d4b12' : 'whitesmoke'} 
+                        w='300px'
+                        variant='outline'>My Account</Button>
                 </Link>
             </VStack>
             {/* Footer */}
