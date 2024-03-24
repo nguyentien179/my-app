@@ -13,7 +13,8 @@ import {
   Tag,
   InputGroup,
   InputLeftElement,
-  Icon
+  Icon,
+  Link
 } from '@chakra-ui/react';
 import { AddIcon, SearchIcon, EditIcon } from '@chakra-ui/icons';
 import { AdminHeader } from './AdminHome.page';
@@ -75,9 +76,12 @@ function TopicsList() {
           <Heading as="h2" size="xl" color="white">
             My topics
           </Heading>
-          <Button leftIcon={<AddIcon />} bg="whitesmoke" color='#426B1F' variant="solid">
-            Add a topic
-          </Button>
+          <Link href='/CreateTopic'>
+                <Button leftIcon={<AddIcon />} bg="whitesmoke" color='#426B1F' variant="solid">
+                    Add a topic
+                </Button>
+          </Link>
+
         </Flex>
       </Box>
 
