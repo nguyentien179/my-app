@@ -17,9 +17,9 @@ import {
   } from '@chakra-ui/react';
 import { AddIcon, ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { AdminHeader } from '../admin/AdminHome.page';
-import { Quote } from '../home/Home.page';
-import { DiscussionPage } from '../home/Home.page';
-import { Footer } from '../home/Home.page';
+import { Quote } from '../guest/Home.page';
+import { DiscussionPage } from '../guest/Home.page';
+import { Footer } from '../guest/Home.page';
 import React, { useState } from 'react';
 import { addMonths, subMonths, format, startOfWeek, startOfMonth, endOfMonth, endOfWeek, eachDayOfInterval } from 'date-fns';
 import meat from '../../assets/contains-meat.png'

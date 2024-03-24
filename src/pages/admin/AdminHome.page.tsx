@@ -2,7 +2,7 @@ import {
   Avatar,
   Box, Button, Divider, Flex, Heading, Icon, Link, Select, SimpleGrid, Spacer, Stat, StatLabel, StatNumber, VStack, Image, IconButton, Menu, MenuButton, MenuItem, MenuList, Tooltip,
 } from '@chakra-ui/react';
-import { Footer, Quote, DiscussionPage } from '../home/Home.page' 
+import { Footer, Quote, DiscussionPage } from '../guest/Home.page' 
 import { FaUser, FaNewspaper, FaBell, FaCalendarDay, FaCog, FaDatabase, FaEnvelopeOpenText } from 'react-icons/fa';
 import { AddIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
