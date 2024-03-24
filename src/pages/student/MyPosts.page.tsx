@@ -4,6 +4,7 @@ import {
     Button,
     VStack,
     Link,
+    Flex,
 } from '@chakra-ui/react';
 import {
     FaUser,
@@ -11,6 +12,7 @@ import {
 } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
+import { AdminHeader } from '../admin/AdminHome.page';
 
 export function StudentSidebar() {
     const location = useLocation();
@@ -47,7 +49,11 @@ export function StudentSidebar() {
 function MyPosts() {
     return(
         <Box>
-            <StudentSidebar />
+            <AdminHeader/>
+            <Flex>
+                <StudentSidebar />
+            </Flex>
+            
         </Box>
     )
 }
