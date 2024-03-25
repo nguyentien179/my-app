@@ -23,12 +23,10 @@ import {
   ModalBody,
   useDisclosure,
   Checkbox,
-  Link,
-  Text
 } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { AdminHeader } from '../admin/AdminHome.page';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function CreateArticle() {
