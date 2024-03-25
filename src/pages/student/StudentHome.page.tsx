@@ -136,7 +136,7 @@ function Dashboard() {
               </ListItem>
             ))}
           </List>
-          <Link href='/CreatePost' width='100%'>
+          <Link href='/CreateArticle' width='100%'>
             <Button size="lg" width='100%' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
               Make a post now!
             </Button>
@@ -151,7 +151,7 @@ function Dashboard() {
   function StudentHome() {
     const navigate = useNavigate();
     const handleAddButtonClick = () => {
-      navigate('/CreatePost');
+      navigate('/CreateArticle');
       // Additional logic when the plus button is clicked
     };
     return (
