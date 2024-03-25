@@ -67,21 +67,21 @@ type StatusType = 'Waiting' | 'Rejected' | 'Overdue' | 'Published';
       title: 'No alarms to no surprises',
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
       status: 'Rejected' as StatusType,
-      image: 'https://via.placeholder.com/150'
+      image: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5b/Radiohead_-_No_Surprises_%28CD1%29.jpg/220px-Radiohead_-_No_Surprises_%28CD1%29.jpg'
     },
     {
       id: 2,
       title: 'There could be hell below, below',
       summary: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
       status: 'Overdue' as StatusType,
-      image: 'https://via.placeholder.com/150'
+      image: 'https://i.discogs.com/DV7a-pnwsxi06Ci9Fxyy8pKjWWvDgQAR9RrLE7gOMgo/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU2ODk0/ODAtMTM5OTk5NzU2/OC0yMDQ0LmpwZWc.jpeg'
     },
     {
       id: 3,
       title: 'Mother Earth is pregnant for the third time',
       summary: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...',
       status: 'Waiting' as StatusType,
-      image: 'https://via.placeholder.com/150'
+      image: 'https://vinylcoverart.com/media/album-covers/3065/funkadelic-maggot-brain.jpg'
     }
   ];
 
@@ -91,14 +91,14 @@ type StatusType = 'Waiting' | 'Rejected' | 'Overdue' | 'Published';
       title: "'Cause I'm as free as a bird now",
       summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
       status: 'Published' as StatusType,
-      image: 'https://via.placeholder.com/150'
+      image: 'https://i.scdn.co/image/ab67616d0000b273128450651c9f0442780d8eb8'
     },
     {
       id: 5,
       title: 'Sectoral heterochromia',
       summary: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
       status: 'Published' as StatusType,
-      image: 'https://via.placeholder.com/150'
+      image: 'https://i1.sndcdn.com/artworks-000157282441-rmtn0q-t500x500.jpg'
     }
   ];
 
