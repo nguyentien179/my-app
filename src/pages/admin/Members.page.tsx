@@ -76,8 +76,9 @@ const members = [
 export function AdminSidebar() {
     const location = useLocation();
 
-    const isActive = (path: any) => location.pathname === path;
-
+    const isActive = (path: string) => {
+        return location.pathname.toLowerCase() === path.toLowerCase();
+    };
     return (
         <Box minW="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center" minH="100vh" // Minimum height to match the viewport height
         overflowY="auto">
