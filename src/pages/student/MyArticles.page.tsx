@@ -56,7 +56,7 @@ export function StudentSidebar() {
   }
 
 function ArticleList() {
-type StatusType = 'Awaiting approval' | 'Rejected' | 'Overdue' | 'Published';
+type StatusType = 'Waiting' | 'Rejected' | 'Overdue' | 'Published';
 
   // Dummy article data
   const pendingArticles = [
@@ -78,7 +78,7 @@ type StatusType = 'Awaiting approval' | 'Rejected' | 'Overdue' | 'Published';
       id: 3,
       title: 'Mother Earth is pregnant for the third time',
       summary: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...',
-      status: 'Awaiting approval' as StatusType,
+      status: 'Waiting' as StatusType,
       image: 'https://via.placeholder.com/150'
     }
   ];
@@ -102,7 +102,7 @@ type StatusType = 'Awaiting approval' | 'Rejected' | 'Overdue' | 'Published';
 
 const StatusButton : React.FC<{ status: StatusType }> = ({ status }) => {
     let color = 'gray';
-    if (status === 'Awaiting approval') color = '#426B1F';
+    if (status === 'Waiting') color = '#426B1F';
     if (status === 'Published') color = '#426B1F';
     if (status === 'Rejected') color = '#6B1F1F';
     if (status === 'Overdue') color = '#383838';
