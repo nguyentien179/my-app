@@ -134,8 +134,8 @@ return (
             <Image borderRadius="md" boxSize="150px" src={article.image} alt={article.title} />
         )}
           <Box flex={1}>
-            <Heading size="md">{article.title}</Heading>
-            <Text fontSize="sm" color="gray.500">{article.summary}</Text>
+            <Heading fontSize="3xl">{article.title}</Heading>
+            <Text fontSize="xl" color="gray.500">{article.summary}</Text>
           </Box>
           <StatusButton status={article.status} />
           <Button size="sm" variant="ghost">View comment</Button>
@@ -152,9 +152,9 @@ return (
         {article.image && (
             <Image borderRadius="md" boxSize="150px" src={article.image} alt={article.title} />
         )}
-          <Box flex={1}>
-            <Heading size="md">{article.title}</Heading>
-            <Text fontSize="sm" color="gray.500">{article.summary}</Text>
+          <Box flex={1} my={4}>
+            <Heading fontSize="3xl" my={4}>{article.title}</Heading>
+            <Text fontSize="xl" color="gray.500">{article.summary}</Text>
           </Box>
           <StatusButton status={article.status} />
         </HStack>
