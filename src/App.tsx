@@ -29,7 +29,7 @@ const App: React.FC = () => (
         <Route path='/CreateTopic' element={<CreateTopicForm/>} /> 
         <Route path='/ViewTopics' element={<ViewTopics/>} /> 
         <Route path='/Student' element={<StudentHome/>} />
-        <Route path='/CreatePost' element={<CreateArticle/>} />
+        <Route path='/CreateArticle' element={<CreateArticle/>} />
         <Route path='/MyArticles' element={<MyArticles/>} />
       </Routes>    
     </BrowserRouter>
