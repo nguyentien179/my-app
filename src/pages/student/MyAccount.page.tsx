@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, HStack, Link, VStack, useColorModeValue, Text, InputGroup, Input, InputRightElement, useToast, FormControl, FormLabel, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Stack, ModalFooter, useDisclosure } from "@chakra-ui/react";
+import { Avatar, Box, Button, Flex, HStack, VStack, useColorModeValue, Text, InputGroup, Input, InputRightElement, FormControl, FormLabel, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Stack, ModalFooter, useDisclosure } from "@chakra-ui/react";
 import { StudentSidebar } from "./MyArticles.page";
 import { AdminHeader } from "../admin/AdminHome.page";
 import { EditIcon, ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -10,7 +10,7 @@ const profile = {
     email: 'hawk@website.edu',
     faculty: 'Faculty A',
     password: 'password123',
-    major: 'Computter Science',
+    major: 'Computer Science',
     image: 'path-to-avatar-image.jpg' // Replace with actual path to the avatar image
   };
   
@@ -18,11 +18,7 @@ const ProfileCard = () => {
     const [showPassword, setShowPassword] = useState(false);
     const bg = useColorModeValue('#869876', '#869876');
     const toggleShowPassword = () => setShowPassword(!showPassword);
-    const [isEditing, setIsEditing] = useState(false);
 
-    const handleEditClick = () => {
-      setIsEditing(!isEditing);
-    };
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
@@ -73,7 +69,7 @@ const ProfileCard = () => {
                     color="#fff"
                 />
                 <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={toggleShowPassword} colorScheme="teal">
+                    <Button h="1.75rem" size="sm" onClick={toggleShowPassword} colorScheme="green">
                     {showPassword ? <ViewOffIcon color="#fff" /> : <ViewIcon color="#fff" />}
                     </Button>
                 </InputRightElement>
