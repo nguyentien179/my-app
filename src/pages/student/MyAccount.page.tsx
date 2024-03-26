@@ -43,26 +43,26 @@ const ProfileCard = () => {
   
         <Box bg={bg} p={4} borderRadius="lg" w="100%">
           <VStack spacing={4} align="flex-start">
-            <Text fontSize="lg" fontWeight="bold" color="#fff" mb={2}>
+            <Text fontSize="4xl" fontWeight="bold" color="#fff" mb={2}>
               Personal information
             </Text>
-            <HStack justifyContent="space-between" w="full">
+            <HStack justifyContent="space-between" w="full" fontSize="xl">
               <Text color="#fff">Name</Text>
               <Text color="#fff">{profile.name}</Text>
             </HStack>
-            <HStack justifyContent="space-between" w="full">
+            <HStack justifyContent="space-between" w="full" fontSize="xl">
               <Text color="#fff">Email</Text>
               <Text color="#fff">{profile.email}</Text>
             </HStack>
-            <HStack justifyContent="space-between" w="full">
+            <HStack justifyContent="space-between" w="full" fontSize="xl">
               <Text color="#fff">Faculty</Text>
               <Text color="#fff">{profile.faculty}</Text>
             </HStack>
-            <HStack justifyContent="space-between" w="full">
+            <HStack justifyContent="space-between" w="full" fontSize="xl">
               <Text color="#fff">Major</Text>
               <Text color="#fff">{profile.major}</Text>
             </HStack>
-            <VStack justifyContent="space-between" w="full" alignItems="flex-start">
+            <VStack justifyContent="space-between" w="full" alignItems="flex-start" fontSize="xl">
                 <Text color="#fff">Password</Text>
                 <InputGroup size="md">
                 <Input
@@ -122,10 +122,12 @@ const ProfileCard = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button bg='whitesmoke' color='#426b1f' variant="outline" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost">Update</Button>
+            <Button bg='#426b1f' color='whitesmoke' variant="ghost" colorScheme="green" _hover={{ bg:"whitesmoke", color:'#2d4b12'}} _focus={{ boxShadow: "none" }} transition="background-color 0.2s, box-shadow 0.2s">
+                Update
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
