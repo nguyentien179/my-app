@@ -34,11 +34,14 @@ function PendingArticle() {
                         </VStack>
                     </HStack>
                 ))}
-                <Link href='/mc/PendingArticles' >
-                    <Button mt={4} bg="#426b1f" color='#fff' w='full' _hover={{ bg:"#fff", color:'#2d4b12'}}>
-                        View all pending articles
-                    </Button>
-                </Link>
+                <Flex justifyContent="center">
+                    <Link href='/mc/PendingArticles' >
+                        <Button mt={4} bg="#426b1f" color='#fff'  _hover={{ bg:"#fff", color:'#2d4b12'}} height='50px' width='550px'>
+                            View all pending articles
+                        </Button>
+                    </Link>                    
+                </Flex>
+
                 
             </VStack>
             <Topics />   
