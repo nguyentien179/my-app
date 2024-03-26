@@ -29,6 +29,51 @@ import woman from '../../assets/women.png'
 import { useNavigate } from 'react-router-dom';
 
 
+export function Topics() {
+  type StatusType = 'In progress' | 'Expired' | 'Upcoming';
+
+  const topics = [
+    { id: 1, title: 'Take pics of your meat', status: 'In progress' as StatusType, timeLeft: '2 days remaining', icon: meat },
+    { id: 2, title: 'Vegetable day ?!?', status: 'Expired'as StatusType, timeLeft: '4 days ago', icon: vegetable },
+    { id: 3, title: 'Where’s your family ?', status: 'Upcoming'as StatusType, timeLeft: 'In 1 week', icon: family },
+    { id: 4, title: 'Mother’s day bonanza', status: 'Upcoming'as StatusType, timeLeft: 'In 1 month', icon: woman },
+  ];
+
+  // Status button component
+  const StatusButton : React.FC<{ status: StatusType }> = ({ status }) => {
+    let color = 'gray';
+    if (status === 'In progress') color = '#426B1F';
+    if (status === 'Expired') color = '#6B1F1F';
+    if (status === 'Upcoming') color = '#BEC05B';
+    
+    return <Tag fontSize="lg" fontWeight='bold' width='140px' height='50px' display='flex' alignItems='center' justifyContent='center' borderRadius="full" variant="solid" bg={color} color='white'>{status}</Tag>;
+  };
+
+return (
+  <VStack spacing={4} alignItems="center" p={5} bg='white' flex={1}>
+    <Heading size="lg" mb={4} color='#426B1F'>Topics</Heading>
+    <List spacing={6} width="100%">
+      {topics.map((topic) => (
+        <ListItem key={topic.id}>
+          <Flex align="center" bg="white" p={4} borderRadius="lg" boxShadow="base" _hover={{transform: "translateY(-4px)", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"}} transition="background-color 0.2s, box-shadow 0.2s transform 0.4s">
+            <Box boxSize="50px" mr={4} bg="purple.100" borderRadius="md" >
+            <Image src={topic.icon} boxSize="50px" mr={4} borderRadius="md" /> {/* Placeholder for icon */}
+            </Box>
+            <Box flex="1">
+              <Text fontWeight="bold" fontSize='2xl'>{topic.title}</Text>
+              <Text fontSize="md" fontStyle='italic'>{topic.timeLeft}</Text>
+            </Box>
+            <StatusButton status={topic.status} />
+          </Flex>
+        </ListItem>
+      ))}
+    </List>
+    
+  </VStack>  
+)
+
+}
+
 function Dashboard() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   
@@ -54,25 +99,6 @@ function Dashboard() {
   // Get today's date for highlighting
   const today = new Date();
 
-  // Define a type for the status
-  type StatusType = 'In progress' | 'Expired' | 'Upcoming';
-  // Define your topics as an array of objects
-  const topics = [
-    { id: 1, title: 'Take pics of your meat', status: 'In progress' as StatusType, timeLeft: '2 days remaining', icon: meat },
-    { id: 2, title: 'Vegetable day ?!?', status: 'Expired'as StatusType, timeLeft: '4 days ago', icon: vegetable },
-    { id: 3, title: 'Where’s your family ?', status: 'Upcoming'as StatusType, timeLeft: 'In 1 week', icon: family },
-    { id: 4, title: 'Mother’s day bonanza', status: 'Upcoming'as StatusType, timeLeft: 'In 1 month', icon: woman },
-  ];
-
-  // Status button component
-  const StatusButton : React.FC<{ status: StatusType }> = ({ status }) => {
-    let color = 'gray';
-    if (status === 'In progress') color = '#426B1F';
-    if (status === 'Expired') color = '#6B1F1F';
-    if (status === 'Upcoming') color = '#BEC05B';
-    
-    return <Tag fontSize="lg" fontWeight='bold' width='140px' height='50px' display='flex' alignItems='center' justifyContent='center' borderRadius="full" variant="solid" bg={color} color='white'>{status}</Tag>;
-  };
 
   return (
     <Flex direction={['column', 'row']} width="100%">
@@ -117,32 +143,15 @@ function Dashboard() {
           </SimpleGrid>
         </Box>
       </Flex>
-
-        <VStack spacing={4} alignItems="center" p={5} bg='white' flex={1}>
-          <Heading size="lg" mb={4} color='#426B1F'>Topics</Heading>
-          <List spacing={6} width="100%">
-            {topics.map((topic) => (
-              <ListItem key={topic.id}>
-                <Flex align="center" bg="white" p={4} borderRadius="lg" boxShadow="base" _hover={{transform: "translateY(-4px)", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"}} transition="background-color 0.2s, box-shadow 0.2s transform 0.4s">
-                  <Box boxSize="50px" mr={4} bg="purple.100" borderRadius="md" >
-                  <Image src={topic.icon} boxSize="50px" mr={4} borderRadius="md" /> {/* Placeholder for icon */}
-                  </Box>
-                  <Box flex="1">
-                    <Text fontWeight="bold" fontSize='2xl'>{topic.title}</Text>
-                    <Text fontSize="md" fontStyle='italic'>{topic.timeLeft}</Text>
-                  </Box>
-                  <StatusButton status={topic.status} />
-                </Flex>
-              </ListItem>
-            ))}
-          </List>
-          <Link href='/CreateArticle' width='100%'>
-            <Button size="lg" width='100%' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
-              Make a post now!
-            </Button>
-          </Link>
-          
-        </VStack>
+      <VStack>
+        <Topics />
+        <Link href='/CreateArticle' width='80%'>
+      <Button size="lg" width='100%' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
+        Make a post now!
+      </Button>
+    </Link>
+      </VStack>
+        
     </Flex>
     
   );

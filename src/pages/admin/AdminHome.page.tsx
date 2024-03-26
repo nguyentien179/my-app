@@ -63,7 +63,7 @@ export function AdminHeader() {
   );
 }
 
-const Overview = () => {
+export const Overview = () => {
   return (
     <Box bg="#d9e6d3" p={6} borderRadius="lg" boxShadow="xl">
       <Heading as="h3" size="lg" textAlign="center" mb={6} color="#1d4732">
