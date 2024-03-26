@@ -51,7 +51,7 @@ export function Topics() {
 
 return (
   <VStack spacing={4} alignItems="center" p={5} bg='white' flex={1}>
-    <Heading size="lg" mb={4} color='#426B1F'>Topics</Heading>
+    <Heading fontSize="4xl" mb={4} color='#426B1F'>Topics</Heading>
     <List spacing={6} width="100%">
       {topics.map((topic) => (
         <ListItem key={topic.id}>
@@ -60,7 +60,7 @@ return (
             <Image src={topic.icon} boxSize="50px" mr={4} borderRadius="md" /> {/* Placeholder for icon */}
             </Box>
             <Box flex="1">
-              <Text fontWeight="bold" fontSize='2xl'>{topic.title}</Text>
+              <Text fontWeight="bold" fontSize='2xl' color='#426b1f'>{topic.title}</Text>
               <Text fontSize="md" fontStyle='italic'>{topic.timeLeft}</Text>
             </Box>
             <StatusButton status={topic.status} />
