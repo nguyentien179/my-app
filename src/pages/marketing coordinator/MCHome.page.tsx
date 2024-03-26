@@ -34,8 +34,8 @@ function PendingArticle() {
                         </VStack>
                     </HStack>
                 ))}
-                <Link href='/mc/PendingArticles'>
-                    <Button mt={4} bg="#426b1f" color='#fff'>
+                <Link href='/mc/PendingArticles' >
+                    <Button mt={4} bg="#426b1f" color='#fff' w='full'>
                         View all pending articles
                     </Button>
                 </Link>
