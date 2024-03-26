@@ -1,5 +1,5 @@
 import { AdminHeader } from '../admin/AdminHome.page';
-import { DiscussionPage } from '../guest/Home.page';
+import { DiscussionPage, Footer } from '../guest/Home.page';
 import { VStack, Text, HStack, Avatar, Button, Link, Box, Flex } from '@chakra-ui/react';
 import { Topics } from '../student/StudentHome.page';
 
@@ -54,6 +54,7 @@ function MCHome() {
             <AdminHeader />
             <PendingArticle />
             <DiscussionPage />
+            <Footer />
         </Box>
     )
 }
