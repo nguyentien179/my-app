@@ -75,7 +75,7 @@ export const Overview = () => {
         <VStack spacing={4} align="stretch">
           <Stat>
             <StatLabel><Icon as={FaUser} mr={2} />Total accounts</StatLabel>
-            <Link href='/Members'>
+            <Link href='/Admin/Members'>
               <StatNumber textDecoration='underline'>1,024</StatNumber>
             </Link>
             
@@ -129,7 +129,7 @@ export const Overview = () => {
 function Homepage() {
   const navigate = useNavigate();
   const handleAddButtonClick = () => {
-    navigate('/CreateTopic');
+    navigate('/Admin/CreateTopic');
     // Additional logic when the plus button is clicked
   };
   return (

@@ -83,29 +83,29 @@ export function AdminSidebar() {
         <Box minW="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center" minH="100vh" // Minimum height to match the viewport height
         overflowY="auto">
             <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
-            <Link as={RouterLink} to='/Members'>
-                <Button bg={isActive('/Members') ? 'whitesmoke' : 'transparent'} 
-                        _hover={isActive('/Members') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+            <Link as={RouterLink} to='/Admin/Members'>
+                <Button bg={isActive('/Admin/Members') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Admin/Members') ? {} : { bg: '#fff', color: '#2d4b12' }} 
                         leftIcon={<FaUserCog />} 
-                        color={isActive('/Members') ? '#2d4b12' : 'whitesmoke'} 
+                        color={isActive('/Admin/Members') ? '#2d4b12' : 'whitesmoke'} 
                         w='300px'
                         variant='outline'>
                     Manage accounts
                 </Button>
             </Link>
-            <Link as={RouterLink} to='/ViewTopics'>
-                <Button bg={isActive('/ViewTopics') ? 'whitesmoke' : 'transparent'} 
-                        _hover={isActive('/ViewTopics') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+            <Link as={RouterLink} to='/Admin/ViewTopics'>
+                <Button bg={isActive('/Admin/ViewTopics') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Admin/ViewTopics') ? {} : { bg: '#fff', color: '#2d4b12' }} 
                         leftIcon={<FaBacon />} 
-                        color={isActive('/ViewTopics') ? '#2d4b12' : 'whitesmoke'} 
+                        color={isActive('/Admin/ViewTopics') ? '#2d4b12' : 'whitesmoke'} 
                         w='300px'
                         variant='outline'>View Topics</Button>
                 </Link>
-                <Link as={RouterLink} to='/SendNotif'>
-                <Button bg={isActive('/SendNotif') ? 'whitesmoke' : 'transparent'} 
-                        _hover={isActive('/SendNotif') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                <Link as={RouterLink} to='/Admin/SendNotif'>
+                <Button bg={isActive('/Admin/SendNotif') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Admin/SendNotif') ? {} : { bg: '#fff', color: '#2d4b12' }} 
                         leftIcon={<FaBell />} 
-                        color={isActive('/SendNotif') ? '#2d4b12' : 'whitesmoke'} 
+                        color={isActive('/Admin/SendNotif') ? '#2d4b12' : 'whitesmoke'} 
                         w='300px'
                         variant='outline'>Send Notifications</Button>
                 </Link>
@@ -214,7 +214,7 @@ function MemberTable() {
                             </Table>
                         </Box>
                         {/* Button to add new member */}
-                        <Link href='/Add'>
+                        <Link href='/Admin/Add'>
                             <Button leftIcon={<FaUserPlus />} bg="#2d4b12" color='#fff' variant="outline" colorScheme='green' onClick={onOpen} mt={8} _hover={{ bg:"#fff", color:'#2d4b12'}} _focus={{ boxShadow: "none" }}>
                                 Add an account
                             </Button>

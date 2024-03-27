@@ -76,7 +76,7 @@ function TopicsList() {
           <Heading as="h2" size="xl" color="white">
             My topics
           </Heading>
-          <Link href='/CreateTopic'>
+          <Link href='/Admin/CreateTopic'>
                 <Button leftIcon={<AddIcon />} bg="whitesmoke" color='#426B1F' variant="solid">
                     Add a topic
                 </Button>
