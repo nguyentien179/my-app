@@ -145,7 +145,7 @@ function Dashboard() {
       </Flex>
       <VStack>
         <Topics />
-        <Link href='/CreateArticle' width='80%'>
+        <Link href='/Student/CreateArticle' width='80%'>
       <Button size="lg" width='100%' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
         Make a post now!
       </Button>
@@ -160,7 +160,7 @@ function Dashboard() {
   function StudentHome() {
     const navigate = useNavigate();
     const handleAddButtonClick = () => {
-      navigate('/CreateArticle');
+      navigate('/Student/CreateArticle');
       // Additional logic when the plus button is clicked
     };
     return (

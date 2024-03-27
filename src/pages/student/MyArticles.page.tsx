@@ -34,19 +34,19 @@ export function StudentSidebar() {
         <Box minW="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center" minH="100vh" // Minimum height to match the viewport height
         overflowY="auto">
             <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
-            <Link as={RouterLink} to='/MyArticles'>
-                <Button bg={isActive('/MyArticles') ? 'whitesmoke' : 'transparent'} 
-                        _hover={isActive('/MyArticles') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+            <Link as={RouterLink} to='/Student/MyArticles'>
+                <Button bg={isActive('/Student/MyArticles') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Student/MyArticles') ? {} : { bg: '#fff', color: '#2d4b12' }} 
                         leftIcon={<FaNewspaper />} 
-                        color={isActive('/MyArticles') ? '#2d4b12' : 'whitesmoke'} 
+                        color={isActive('/Student/MyArticles') ? '#2d4b12' : 'whitesmoke'} 
                         w='300px'
                         variant='outline'>View My Articles</Button>
                 </Link>
-                <Link as={RouterLink} to='/MyAccount'>
-                <Button bg={isActive('/MyAccount') ? 'whitesmoke' : 'transparent'} 
-                        _hover={isActive('/MyAccount') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                <Link as={RouterLink} to='/Student/MyAccount'>
+                <Button bg={isActive('/Student/MyAccount') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Student/MyAccount') ? {} : { bg: '#fff', color: '#2d4b12' }} 
                         leftIcon={<FaUser />} 
-                        color={isActive('/MyAccount') ? '#2d4b12' : 'whitesmoke'} 
+                        color={isActive('/Student/MyAccount') ? '#2d4b12' : 'whitesmoke'} 
                         w='300px'
                         variant='outline'>My Account</Button>
                 </Link>
@@ -123,7 +123,7 @@ return (
           </InputLeftElement>
           <Input placeholder="Search my article" />
         </InputGroup>
-        <Link href='/CreateArticle'>
+        <Link href='/Student/CreateArticle'>
             <Button leftIcon={<AddIcon />} bg="#426b1f" color='whitesmoke' my={4} _hover={{ bg:"grey", color:'#2d4b12', transform: 'translateY(-2px)'}} _focus={{ boxShadow: "none" }} transition="background-color 0.2s, box-shadow 0.2s, transform 0.2s">
             Create New Article
             </Button>
