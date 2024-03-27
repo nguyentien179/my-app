@@ -7,9 +7,9 @@ function StudentRoute() {
   return (
     <>
       <Route path='/Student' element={<StudentHome />} />
-      <Route path='/CreateArticle' element={<CreateArticle />} />
-      <Route path='/MyArticles' element={<MyArticles />} />
-      <Route path='/MyAccount' element={<MyAccount />} />
+      <Route path='/Student/CreateArticle' element={<CreateArticle />} />
+      <Route path='/Student/MyArticles' element={<MyArticles />} />
+      <Route path='/Student/MyAccount' element={<MyAccount />} />
     </>
   );
 }

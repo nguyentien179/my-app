@@ -10,11 +10,11 @@ function AdminRoute() {
     return (
         <>
             <Route path="/Admin" element={<AdminHome />} />
-            <Route path="/Members" element={<Members />} />
-            <Route path="/Add" element={<Add />} />
-            <Route path="/SendNotif" element={<SendNotif />} />
-            <Route path='/CreateTopic' element={<CreateTopicForm />} />
-            <Route path='/ViewTopics' element={<ViewTopics />} />
+            <Route path="/Admin/Members" element={<Members />} />
+            <Route path="/Admin/Add" element={<Add />} />
+            <Route path="/Admin/SendNotif" element={<SendNotif />} />
+            <Route path='/Admin/CreateTopic' element={<CreateTopicForm />} />
+            <Route path='/Admin/ViewTopics' element={<ViewTopics />} />
         </>
     );
 }
