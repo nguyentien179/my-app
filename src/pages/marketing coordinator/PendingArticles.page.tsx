@@ -1,10 +1,13 @@
-import { AddIcon, ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
-import { Button, VStack, Link, Box, Text, Flex, Menu, MenuButton, MenuList, MenuItem, Input, Collapse, Heading, useDisclosure, Textarea, StackDivider, HStack, InputGroup, InputLeftElement, Tag, Image } from "@chakra-ui/react";
+import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
+import { Button, VStack, Link, Box, Text, Flex, Menu, MenuButton, MenuList, MenuItem, Input, Collapse, Heading, useDisclosure, Textarea, StackDivider, HStack, InputGroup, InputLeftElement, Tag, Image, Avatar } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaNewspaper, FaUser } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
 import { AdminHeader } from "../admin/AdminHome.page";
+import { formatDistanceToNow } from 'date-fns';
+
+
 export function MCSidebar() {
     const location = useLocation();
   
@@ -46,26 +49,47 @@ export function MCSidebar() {
         {
             id: 1,
             title: 'No alarms to no surprises',
-            summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae mauris eu ex tincidunt scelerisque vel et risus. Fusce et lorem metus. Fusce pellentesque sed lacus at facilisis. Suspendisse in.',
             status: 'Rejected' as StatusType,
-            image: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5b/Radiohead_-_No_Surprises_%28CD1%29.jpg/220px-Radiohead_-_No_Surprises_%28CD1%29.jpg'
+            image: 'https://upload.wikimedia.org/wikipedia/en/thumb/5/5b/Radiohead_-_No_Surprises_%28CD1%29.jpg/220px-Radiohead_-_No_Surprises_%28CD1%29.jpg',
+            author: 'Mike Hawk',
+            timeSubmitted: new Date('2024-03-25T12:00:00Z')
           },
           {
             id: 2,
             title: 'There could be hell below, below',
-            summary: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae mauris eu ex tincidunt scelerisque vel et risus. Fusce et lorem metus. Fusce pellentesque sed lacus at facilisis. Suspendisse in.',
             status: 'Overdue' as StatusType,
-            image: 'https://i.discogs.com/DV7a-pnwsxi06Ci9Fxyy8pKjWWvDgQAR9RrLE7gOMgo/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU2ODk0/ODAtMTM5OTk5NzU2/OC0yMDQ0LmpwZWc.jpeg'
+            image: 'https://i.discogs.com/DV7a-pnwsxi06Ci9Fxyy8pKjWWvDgQAR9RrLE7gOMgo/rs:fit/g:sm/q:90/h:600/w:594/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU2ODk0/ODAtMTM5OTk5NzU2/OC0yMDQ0LmpwZWc.jpeg',
+            author: 'Mike Hawk',
+            timeSubmitted: new Date('2024-03-26T12:00:00Z')
           },
           {
             id: 3,
             title: 'Mother Earth is pregnant for the third time',
-            summary: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae mauris eu ex tincidunt scelerisque vel et risus. Fusce et lorem metus. Fusce pellentesque sed lacus at facilisis. Suspendisse in.',
             status: 'Waiting' as StatusType,
-            image: 'https://vinylcoverart.com/media/album-covers/3065/funkadelic-maggot-brain.jpg'
+            image: 'https://vinylcoverart.com/media/album-covers/3065/funkadelic-maggot-brain.jpg',
+            author: 'Mike Hawk',
+            timeSubmitted: new Date('2024-03-27T12:00:00Z')
           }
     ])
-    
+
+    const [expandedArticleId, setExpandedArticleId] = useState<number | null>(null);
+    const [comments, setComments] = useState<string[]>([]); // Placeholder for comments state
+
+    const toggleExpansion = (id: number) => {
+        setExpandedArticleId(prevId => (prevId === id ? null : id));
+    };
+
+    function trimText(text: any, limit: any){
+        const words = text.split(' ');
+        if (words.length > limit) {
+          return words.slice(0, limit).join(' ') + '...';
+        }
+        return text;
+      }
+
     const handleStatusChange = (id: number, newStatus: 'Approved' | 'Rejected' | 'Waiting') => {
         const updatedArticles = pendingArticles.map(article => {
           if (article.id === id) {
@@ -109,19 +133,43 @@ export function MCSidebar() {
               <Input placeholder="Search an article" />
             </InputGroup>
           </Box>
-          {/* Map through pending articles */}
-          {pendingArticles.map((article) => (
-            <HStack key={article.id} p={5} spacing={4} align="center" borderBottomWidth="1px">
-            {article.image && (
+           {/* Map through pending articles */}
+        {pendingArticles.map((article) => (
+            <Box key={article.id}>
+            <HStack p={5} spacing={4} align="center" borderBottomWidth="1px" onClick={() => toggleExpansion(article.id)}>
+                <Avatar name={article.author} src={`path_to_author_avatar_based_on_${article.author}`} />
+
+                <VStack align="flex-start" flex={1}>
+                    <Text fontSize="xl">{article.author}</Text>
+                    <Text fontSize="sm" color="gray.400" fontStyle="italic">
+                        Submitted {formatDistanceToNow(new Date(article.timeSubmitted), { addSuffix: true })}
+                    </Text>
+                </VStack>
+                
+                <VStack align="flex-start" flex={4}>
+                    <Heading fontSize="3xl">{article.title}</Heading>
+                    <Text fontSize="xl" color="gray.500">
+                        {expandedArticleId === article.id ? article.description : trimText(article.description, 15)}
+                    </Text>
+                </VStack>
+
+                {article.image && (
                 <Image borderRadius="md" boxSize="150px" src={article.image} alt={article.title} />
-            )}
-              <Box flex={1}>
-                <Heading fontSize="3xl">{article.title}</Heading>
-                <Text fontSize="xl" color="gray.500">{article.summary}</Text>
-              </Box>
-              <StatusButton articleId={article.id} status={article.status} />
+                )}
+
+                <StatusButton articleId={article.id} status={article.status} />
             </HStack>
-          ))}
+            {expandedArticleId === article.id && (
+                <VStack align="stretch" p={5}>
+                <Box>
+                    {/* Add a textarea or input for comments here */}
+                    <Textarea placeholder="Add your comments" size="lg" mb={4} />
+                    <Button bg="#426b1f" color='#fff'  _hover={{ bg:"#fff", color:'#2d4b12'}}>Send Comment</Button>
+                </Box>
+                </VStack>
+            )}
+            </Box>
+        ))}
         </VStack>
       );
 }
