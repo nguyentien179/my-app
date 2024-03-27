@@ -1,5 +1,5 @@
-import { ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
-import { Button, VStack, Link, Box, Text, Flex, Menu, MenuButton, MenuList, MenuItem, Input, Collapse, Heading, useDisclosure, Textarea, StackDivider, HStack, InputGroup, InputLeftElement, Tag, Image, Avatar } from "@chakra-ui/react";
+import { ChevronDownIcon, ChevronUpIcon, SearchIcon } from "@chakra-ui/icons";
+import { Button, VStack, Link, Box, Text, Flex, Menu, MenuButton, MenuList, MenuItem, Input, Collapse, Heading, useDisclosure, Textarea, StackDivider, HStack, InputGroup, InputLeftElement, Tag, Image, Avatar, IconButton } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaNewspaper, FaUser } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
@@ -75,12 +75,14 @@ export function MCSidebar() {
           }
     ])
 
+    // Add a helper function to handle the article expansion
+    const handleExpandClick = (articleId: number) => {
+        // If the clicked article is already expanded, collapse it, otherwise expand it
+        setExpandedArticleId(expandedArticleId === articleId ? null : articleId);
+    };
     const [expandedArticleId, setExpandedArticleId] = useState<number | null>(null);
     const [comments, setComments] = useState<string[]>([]); // Placeholder for comments state
 
-    const toggleExpansion = (id: number) => {
-        setExpandedArticleId(prevId => (prevId === id ? null : id));
-    };
 
     function trimText(text: any, limit: any){
         const words = text.split(' ');
@@ -136,7 +138,7 @@ export function MCSidebar() {
            {/* Map through pending articles */}
         {pendingArticles.map((article) => (
             <Box key={article.id}>
-            <HStack p={5} spacing={4} align="center" borderBottomWidth="1px" onClick={() => toggleExpansion(article.id)}>
+            <HStack p={5} spacing={4} align="center" borderBottomWidth="1px">
                 <Avatar name={article.author} src={`path_to_author_avatar_based_on_${article.author}`} />
 
                 <VStack align="flex-start" flex={1}>
@@ -158,16 +160,26 @@ export function MCSidebar() {
                 )}
 
                 <StatusButton articleId={article.id} status={article.status} />
+                <Button
+                    aria-label="Expand article"
+                    onClick={() => handleExpandClick(article.id)}
+                    variant="ghost"
+                >{expandedArticleId === article.id ? 'Collapse': 'Expand'} {expandedArticleId === article.id ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                </Button>
             </HStack>
-            {expandedArticleId === article.id && (
-                <VStack align="stretch" p={5}>
-                <Box>
-                    {/* Add a textarea or input for comments here */}
-                    <Textarea placeholder="Add your comments" size="lg" mb={4} />
-                    <Button bg="#426b1f" color='#fff'  _hover={{ bg:"#fff", color:'#2d4b12'}}>Send Comment</Button>
-                </Box>
-                </VStack>
-            )}
+            
+            <Collapse in={expandedArticleId === article.id} animateOpacity unmountOnExit>
+                {expandedArticleId === article.id && (
+                    <VStack align="stretch" p={5}>
+                    <Box>
+                        {/* Add a textarea or input for comments here */}
+                        <Textarea placeholder="Add your comments" size="lg" mb={4} />
+                        <Button bg="#426b1f" color='#fff'  _hover={{ bg:"#fff", color:'#2d4b12'}}>Send Comment</Button>
+                    </Box>
+                    </VStack>
+                )}                
+            </Collapse>
+
             </Box>
         ))}
         </VStack>
