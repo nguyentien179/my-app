@@ -2,7 +2,7 @@ import {
   Avatar,
   Box, Button, Divider, Flex, Heading, Icon, Link, Select, SimpleGrid, Spacer, Stat, StatLabel, StatNumber, VStack, Image, IconButton, Menu, MenuButton, MenuItem, MenuList, Tooltip,
 } from '@chakra-ui/react';
-import { Footer, Quote, DiscussionPage } from '../home/Home.page' 
+import { Footer, Quote, DiscussionPage } from '../guest/Home.page' 
 import { FaUser, FaNewspaper, FaBell, FaCalendarDay, FaCog, FaDatabase, FaEnvelopeOpenText } from 'react-icons/fa';
 import { AddIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
@@ -63,7 +63,7 @@ export function AdminHeader() {
   );
 }
 
-const Overview = () => {
+export const Overview = () => {
   return (
     <Box bg="#d9e6d3" p={6} borderRadius="lg" boxShadow="xl">
       <Heading as="h3" size="lg" textAlign="center" mb={6} color="#1d4732">
@@ -75,7 +75,7 @@ const Overview = () => {
         <VStack spacing={4} align="stretch">
           <Stat>
             <StatLabel><Icon as={FaUser} mr={2} />Total accounts</StatLabel>
-            <Link href='/Members'>
+            <Link href='/Admin/Members'>
               <StatNumber textDecoration='underline'>1,024</StatNumber>
             </Link>
             
@@ -129,7 +129,7 @@ const Overview = () => {
 function Homepage() {
   const navigate = useNavigate();
   const handleAddButtonClick = () => {
-    navigate('/CreatePost');
+    navigate('/Admin/CreateTopic');
     // Additional logic when the plus button is clicked
   };
   return (

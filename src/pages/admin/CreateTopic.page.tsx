@@ -132,7 +132,7 @@ function CreateTopic() {
               Back
               </Button>
               <Button width="full" ml={2} colorScheme="green" bg="#2d4b12" color='white' variant="ghost"  _hover={{ bg:"grey", color:'#2d4b12', transform: 'translateY(-2px)'}} _focus={{ boxShadow: "none" }} transition="background-color 0.2s, box-shadow 0.2s, transform 0.2s">
-                Topic
+                Accept
               </Button>
             </HStack>
           </VStack>

@@ -1,340 +1,198 @@
 import {
     Box,
     Flex,
-    Image,
-    Link,
-    Button,
-    Select,
     Text,
-    Spacer,
-    Center,
-    Grid,
-    Divider,
-    HStack,
-    Input,
-    InputGroup,
-    InputLeftElement,
     VStack,
     Heading,
     SimpleGrid,
-    Avatar,
-    Stack,
-    Container,
-    Icon,
+    IconButton,
+    Circle,
+    List,
+    ListItem,
+    Image,
+    Tag,
+    Button,
+    Tooltip,
+    Link
   } from '@chakra-ui/react';
-  import about from "../../assets/seven-shooter-hPKTYwJ4FUo-unsplash.jpg"
-  import { SearchIcon } from '@chakra-ui/icons';
-  import { FaFacebook, FaTwitter, FaEnvelope } from 'react-icons/fa';
-  import post1 from "../../assets/post 1.jpg"
-  import ceo1 from "../../assets/ceo1.png"
-  import ceo2 from "../../assets/ceo2.jpg"
-  import ceo3 from "../../assets/ceo3.jpg"
-  import logo from '../../assets/logo.png'
-  
-  export function Header() {
-  
-    return (
-      <Flex as="header" align="center" padding="1rem" bg="white" boxShadow="sm" width="100%">
-        <Box p="2">
-          <Image src={logo} alt="Website logo" boxSize="70px" ml="4" />
-        </Box>
-  
-        <Spacer /> {/* This pushes all elements to the right and left sides of the header */}
-  
-        <Flex alignItems="center" ml="auto">
-          <Box display="flex" alignItems="center">
-            {/* This container will group the navigation links, language selector, and login button */}
-  
-            <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
-              Newsfeed
-            </Link>
-            <Link href="#" px="3" py="1" rounded="md" _hover={{ textDecoration: 'none', bg: 'gray.100' }} mr={20}>
-              Contact
-            </Link>
-  
-            <Select placeholder="Language" width="auto" mr="20">
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              {/* More languages */}
-            </Select>
-            <Link href="/login">
-              <Button bg="#426B1F" color="#FFF" variant="solid" size="lg" mr="4" _hover={{ bg: "#e0e0e0", color: "#426B1F" }}>Login</Button>
-            </Link>
-          </Box>
-        </Flex>
-      </Flex>
-    );
-  }
-  
-  export function Quote() {
-    return (
-      <Box as="section" bg="white.100" my={20}>
-        <Center flexDirection="column" textAlign="center" px={4}>
-          <Text fontSize="2xl" mb={4}>
-            Push <em>harder</em> than yesterday<br /> if you want a <em>different</em> tomorrow.
-          </Text>
-          <Button bg="#426B1F" color="#FFF" variant="solid" size="lg" _hover={{ bg: "#e0e0e0", color: "#426B1F" }}>
-            Browse Newsfeed
-          </Button>
-        </Center>
-      </Box>
-    );
-  }
-  
-  function AboutSection() {
-    return (
-      <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="center" p={5} bg="rgba(126,210,129,0.2)" w="full">
-        {/* Left part with 2x2 grid of boxes */}
-        <Grid gap={4} placeItems="center" maxWidth="40%">
-          <Image src={about} alt="Descriptive text" boxSize="100%" objectFit="cover" objectPosition="center" borderRadius="lg" boxShadow="base" fallbackSrc='https://via.placeholder.com/150' />
-        </Grid>
-  
-        {/* Right part with Lorem Ipsum text */}
-        <Box maxWidth={{ base: "80%", md: "50%" }} textAlign="left" p={{ base: 4, md: 8 }}>
-          <Text fontSize="4xl" color="black" fontWeight="bold">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </Text>
-          <Text fontSize="2xl" color="black" mt={2}>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat.
-          </Text>
-        </Box>
-      </Flex>
-    );
-  }
-  
-  const discussions = [
-    {
-      id: 'd1',
-      title: 'Photo correlations',
-      author: 'Maria Omaga',
-      timeAgo: '3 hours ago',
-      avatarUrl: 'path_to_maria_avatar_image' // replace with actual avatar URL
-    },
-    {
-      id: 'd2',
-      title: 'Lightroom',
-      author: 'Nicky Nicknack',
-      timeAgo: '10 hours ago',
-      avatarUrl: 'path_to_nicky_avatar_image' // replace with actual avatar URL
-    },
-    {
-      id: 'd3',
-      title: 'Took this myself! !?!?',
-      author: 'Black Woman',
-      timeAgo: '2 days ago',
-      avatarUrl: 'path_to_black_woman_avatar_image' // replace with actual avatar URL
-    },
-    {
-      id: 'd4',
-      title: 'Saturation Enhancer',
-      author: 'Shala Kaddidi DuDuhu',
-      timeAgo: '5 days ago',
-      avatarUrl: 'path_to_shala_avatar_image' // replace with actual avatar URL
-    }
+import { AddIcon, ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
+import { AdminHeader } from '../admin/AdminHome.page';
+import { Quote } from '../guest/Home.page';
+import { DiscussionPage } from '../guest/Home.page';
+import { Footer } from '../guest/Home.page';
+import React, { useState } from 'react';
+import { addMonths, subMonths, format, startOfWeek, startOfMonth, endOfMonth, endOfWeek, eachDayOfInterval } from 'date-fns';
+import meat from '../../assets/contains-meat.png'
+import vegetable from '../../assets/vegetable.png'
+import family from '../../assets/family.png'
+import woman from '../../assets/women.png'
+import { useNavigate } from 'react-router-dom';
+
+
+export function Topics() {
+  type StatusType = 'In progress' | 'Expired' | 'Upcoming';
+
+  const topics = [
+    { id: 1, title: 'Take pics of your meat', status: 'In progress' as StatusType, timeLeft: '2 days remaining', icon: meat },
+    { id: 2, title: 'Vegetable day ?!?', status: 'Expired'as StatusType, timeLeft: '4 days ago', icon: vegetable },
+    { id: 3, title: 'Where’s your family ?', status: 'Upcoming'as StatusType, timeLeft: 'In 1 week', icon: family },
+    { id: 4, title: 'Mother’s day bonanza', status: 'Upcoming'as StatusType, timeLeft: 'In 1 month', icon: woman },
   ];
-  
-  const latestArticle = {
-    id: 'a1',
-    title: 'Photo correlations',
-    author: 'Maria Omaga',
-    timeAgo: '3 hours ago',
-    avatarUrl: 'path_to_maria_avatar_image', // replace with actual avatar URL
-    imageUrl: post1 // replace with actual image URL of the forest
+
+  // Status button component
+  const StatusButton : React.FC<{ status: StatusType }> = ({ status }) => {
+    let color = 'gray';
+    if (status === 'In progress') color = '#426B1F';
+    if (status === 'Expired') color = '#6B1F1F';
+    if (status === 'Upcoming') color = '#BEC05B';
+    
+    return <Tag fontSize="lg" fontWeight='bold' width='140px' height='50px' display='flex' alignItems='center' justifyContent='center' borderRadius="full" variant="solid" bg={color} color='white'>{status}</Tag>;
   };
-  
-  export function DiscussionPage() {
-    return (
-      <Flex background="#e1f4dc" p={20}>
-        {/* Header for 'Discussions & Articles' and 'View all discussions' */}
-        <Flex justifyContent="start" width="50%" p={10} direction="column">
-          {/* 'Discussions & Articles' header box */}
-          <Flex justifyContent="space-between" p={4} bg="#fff" borderRadius="lg" boxShadow="md" mb="5">
-            <Text fontSize="3xl" fontWeight="bold" color="#426B1F" alignSelf="center">Discussions <br/>& Articles</Text>
-            <Link color="#426B1F" fontWeight="bold" alignSelf="center">View all discussions</Link>
-          </Flex>
-          {/* 'View all discussions' header box */}
-  
-          <Box width="full" backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" >
-            <Stack spacing={4}>
-              {/* Mapping discussions */}
-              {discussions.map((discussion) => (
-                <Flex key={discussion.id} alignItems="center">
-                  <Avatar name={discussion.author} src={discussion.avatarUrl} />
-                  <Flex justifyContent="space-between" p={4} bg="#fff" borderRadius="lg" boxShadow="md" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
-                  <Box ml={3} >
-                    <Text fontWeight="bold" color="#426b1f">{discussion.title}</Text>
-                    <Text fontSize="sm" color="gray.300">{discussion.author} · {discussion.timeAgo}</Text>
-                  </Box>
-                  </Flex>
-                </Flex>
-              ))}
-            </Stack>
-          </Box>
-        </Flex>
-  
-  
-        {/* Latest Articles Panel */}
-        <Box width="50%" ml={50}>
-        {/* Title 'Latest Articles' */}
-            <Text fontSize="4xl" fontWeight="bold" color="#426B1F" alignSelf="center" mb={5}>Latest Articles</Text>
-        {/* Search bar */}
-        <InputGroup mb={5}>
-          <InputLeftElement pointerEvents="none" children={<SearchIcon color="gray.300" />} />
-          <Input variant="filled" placeholder="Search discussions" />
-        </InputGroup>
-  
-        {/* Green box containing the image and discussion title */}
-        <Box backgroundColor="#a5cda2" borderRadius="lg" p={5} boxShadow="lg" position="relative" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
-          {/* Image */}
-          <Image 
-            src={latestArticle.imageUrl} 
-            alt={latestArticle.title} 
-            objectFit="cover" 
-            width="100%" 
-            height="50%"
-          />
-  
-          {/* Discussion Title */}
-          <Flex position="absolute" bottom={3} right={3} alignItems="center" backgroundColor="rgba(225, 244, 220, 0.8)" p={2} borderRadius="md" _hover={{transform: 'translateY(-5px)', boxShadow: 'xl'}} transition="transform 0.2s, box-shadow 0.2s">
-            <Avatar name={latestArticle.author} src={latestArticle.avatarUrl} />
-            <Box ml={3}>
-              <Text fontWeight="bold">{latestArticle.title}</Text>
-              <Text fontSize="sm">{latestArticle.author} · {latestArticle.timeAgo}</Text>
+
+return (
+  <VStack spacing={4} alignItems="center" p={5} bg='white' flex={1}>
+    <Heading fontSize="4xl" mb={4} color='#426B1F'>Topics</Heading>
+    <List spacing={6} width="100%">
+      {topics.map((topic) => (
+        <ListItem key={topic.id}>
+          <Flex align="center" bg="white" p={4} borderRadius="lg" boxShadow="base" _hover={{transform: "translateY(-4px)", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"}} transition="background-color 0.2s, box-shadow 0.2s transform 0.4s">
+            <Box boxSize="50px" mr={4} bg="purple.100" borderRadius="md" >
+            <Image src={topic.icon} boxSize="50px" mr={4} borderRadius="md" /> {/* Placeholder for icon */}
             </Box>
+            <Box flex="1">
+              <Text fontWeight="bold" fontSize='2xl' color='#426b1f'>{topic.title}</Text>
+              <Text fontSize="md" fontStyle='italic'>{topic.timeLeft}</Text>
+            </Box>
+            <StatusButton status={topic.status} />
           </Flex>
+        </ListItem>
+      ))}
+    </List>
+    
+  </VStack>  
+)
+
+}
+
+function Dashboard() {
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  
+  // Functions to handle month navigation
+  const previousMonth = () => {
+    setCurrentMonth(subMonths(currentMonth, 1));
+  };
+
+  const nextMonth = () => {
+    setCurrentMonth(addMonths(currentMonth, 1));
+  };
+
+  // Calculate the start and end of the month and week
+  const monthStart = startOfMonth(currentMonth);
+  const monthEnd = endOfMonth(monthStart);
+  const startDate = startOfWeek(monthStart);
+  const endDate = endOfWeek(monthEnd);
+
+  // Get all days in the month interval
+  const dateFormat = "d";
+  const daysOfWeek = eachDayOfInterval({ start: startDate, end: endDate });
+
+  // Get today's date for highlighting
+  const today = new Date();
+
+
+  return (
+    <Flex direction={['column', 'row']} width="100%">
+      <Flex direction={['column', 'row']} p={6} bg='#BBC8B0' flex={2} justifyContent='center'>
+        {/* Left side: Weather section */}
+          <VStack bg="#869876" p={5} borderRadius="lg" boxShadow="lg" spacing={5} align="flex-start" minW="400px">
+            <Heading fontSize="7xl" color="#fff">Good <br/>morning!</Heading>
+            <Text fontSize="xl" color="#575757">{`Hanoi, ${format(new Date(), 'dd MMMM, yyyy')}`}</Text>
+            <Flex align="center">
+              <Text fontSize="8xl" color="#fff" mr={4}>☁️🌞</Text> {/* Weather icon */}
+              <VStack align="start">
+                <Text fontSize="6xl" color="#fff">30°/86°</Text> {/* Temperature */}
+                <Text fontSize="4xl" color="#fff">Cloudy</Text> {/* Condition */}
+              </VStack>
+            </Flex>
+          </VStack>
+        {/* Right side: Calendar section */}
+        <Box bg="white" p={5} borderRadius="lg" boxShadow="lg" ml={[0, 5]} mt={[5, 0]} flex="1" maxW="600px">
+          <Flex justifyContent="space-between" alignItems="center" mb={4}>
+            <IconButton aria-label="Previous month" icon={<ChevronLeftIcon />} onClick={previousMonth} />
+            <Heading as="h3" size="lg">
+              {format(currentMonth, 'MMMM yyyy')}
+            </Heading>
+            <IconButton aria-label="Next month" icon={<ChevronRightIcon />} onClick={nextMonth} />
+          </Flex>
+
+          <SimpleGrid columns={7} spacing={1} width="full">
+            {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map(day => (
+              <Text key={day} textAlign="center" fontSize="md" fontWeight="bold">{day}</Text>
+            ))}
+            {daysOfWeek.map(day => {
+              let inCurrentMonth = monthStart <= day && day <= monthEnd;
+              let isToday = format(today, dateFormat) === format(day, dateFormat) && inCurrentMonth;
+              return (
+                <Box key={day.toString()} p={2} textAlign="center">
+                  <Circle size="40px" bg={isToday ? "#426B1F" : undefined} color="black">
+                    {inCurrentMonth ? format(day, dateFormat) : ''}
+                  </Circle>
+                </Box>
+              );
+            })}
+          </SimpleGrid>
         </Box>
-      </Box>
       </Flex>
-    );
-  }
-  
-  const teamMembers = [
-    {
-      name: 'Marcus Thompson',
-      title: 'Dean of Student Affairs',
-      image: ceo1, // Replace with your image paths
-    },
-    {
-      name: 'DaQuan Rodriguez',
-      title: 'Director of Diversity and Inclusion Programs',
-      image: ceo3,
-    },
-    {
-      name: 'Jessica Patel',
-      title: 'Assistant Professor of Environmental Science',
-      image: ceo2,
-    },
-    // Add more team members as needed
-  ];
-  
-  function TeamSection() {
-    return (
-      <Box bg="#badbb2" p={10} textAlign="center">
-        <Box display="inline-block" bg="white" px={3} py={5} borderRadius="md" boxShadow="md" textAlign="center">
-          <Heading as="h2" size="lg" color="#1d4732">
-            Team members
-          </Heading>
-        </Box>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} justifyContent="center" mt={10}>
-          {teamMembers.map((member) => (
-            <VStack
-              key={member.name}
-              spacing={4}
-              p={5}
-              borderRadius="lg" // Adjust the borderRadius to match the desired style
-              boxShadow="lg"
-              _hover={{
-                transform: 'translateY(-5px)',
-                boxShadow: 'xl' // You can adjust this value for a more dramatic effect
-              }}
-              transition="transform 0.2s, box-shadow 0.2s" // Shadow to lift the cards off the page
-            >
-              <Image
-                src={member.image}
-                alt={member.name}
-                borderRadius="30"
-                boxSize="250px"
-                objectFit="cover"
-                mb={4} // Margin bottom for spacing between image and text box
-              />
-              <Box p={3} borderRadius="md" boxShadow="sm" textAlign="center">
-                <Text fontWeight="bold" fontSize="lg" color="#fff">{member.name}</Text>
-                <Text fontSize="sm" color="#fff">{member.title}</Text>
-              </Box>
-            </VStack>
-          ))}
-        </SimpleGrid>
-      </Box>
-    );
-  }
-  
-  export function Footer() {
-    return (
-      <Box bg="#8fa88a" color="white" p={10}>
-        <Container centerContent maxW="none">
-          <Stack direction={{ base: 'column', md: 'row' }} spacing={8} align="center" justify="space-between" width="full">
-            {/* Left text block */}
-            <VStack spacing={4} alignItems="flex-start">
-              <Divider borderColor="whiteAlpha.800" />
-              <Text fontSize="sm" textAlign="left">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br /> tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim <br /> veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                <br /> commodo consequat.
-              </Text>
-              <Divider borderColor="whiteAlpha.800" />
-  
-            </VStack>
-  
-            {/* Center block with icons */}
-            <VStack gap={3.5}>
-              <Text fontSize="5xl" fontWeight="bold" mb={2}>Website</Text>
-              <HStack spacing={4}>
-                <Icon as={FaFacebook} w={10} h={10} href='/' />
-                <Icon as={FaTwitter} w={10} h={10} />
-                <Icon as={FaEnvelope} w={10} h={10} />
-              </HStack>
-              <Text fontSize="lg" textAlign="left">
-                Or contact us locally
-              </Text>
-              <Text fontSize="lg" textAlign="left">
-                +84 1234 5678
-              </Text>
-            </VStack>
-  
-            {/* Right text block */}
-            <VStack alignItems="flex-start" spacing={2}>
-              <Divider borderColor="whiteAlpha.800" />
-              <Link href=''>
-                <Text fontSize="3xl" fontWeight="bold">About Website</Text>
-              </Link>
-              <Link href=''>
-                <Text fontSize="3xl">Terms & Conditions</Text>
-              </Link>
-              <Link href=''>
-                <Text fontSize="3xl">Contact</Text>
-              </Link>
-              <Divider borderColor="whiteAlpha.800" />
-            </VStack>
-          </Stack>
-        </Container>
-      </Box>
-    );
-  }
-  
-  function Homepage() {
+      <VStack>
+        <Topics />
+        <Link href='/Student/CreateArticle' width='80%'>
+      <Button size="lg" width='100%' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
+        Make a post now!
+      </Button>
+    </Link>
+      </VStack>
+        
+    </Flex>
+    
+  );
+}
+
+  function StudentHome() {
+    const navigate = useNavigate();
+    const handleAddButtonClick = () => {
+      navigate('/Student/CreateArticle');
+      // Additional logic when the plus button is clicked
+    };
     return (
       <Box>
-        <Header></Header>
+        <AdminHeader />
         <Quote></Quote>
-        <AboutSection></AboutSection>
+        <Dashboard/>
         <DiscussionPage></DiscussionPage>
-        <TeamSection></TeamSection>
         <Footer></Footer>
+        <Tooltip label="Make a post" fontSize="md" placement="left" hasArrow>
+        <IconButton
+          aria-label="Make a post"
+          icon={<AddIcon />}
+          bg="#426B1F"
+          color='#fff'
+          variant="solid"
+          size="lg"
+          colorScheme='green'
+          isRound={true}
+          position="fixed"
+          bottom="1em" // Adjust the distance from the bottom
+          right="1em" // Adjust the distance from the right
+          zIndex="tooltip" // Ensure the button is above most other items
+          onClick={handleAddButtonClick}
+          boxShadow="0px 4px 12px rgba(0, 0, 0, 0.15)"
+          width="80px" // Set a specific width
+          height="80px" // Set a specific height
+          fontSize="40px"
+        /></Tooltip>
       </Box>
   
     );
   }
   
-  export default Homepage
+  export default StudentHome

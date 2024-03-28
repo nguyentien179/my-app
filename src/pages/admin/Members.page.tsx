@@ -36,12 +36,14 @@ import {
     FaSortAmountDown,
     FaSortAmountUp,
     FaBell,
-    FaDatabase,
     FaUser,
     FaUserCog,
+    FaBacon,
 } from 'react-icons/fa';
 import { AdminHeader } from './AdminHome.page';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
   // Example members data
 const members = [
@@ -71,28 +73,55 @@ const members = [
     },
 ];
 
-function Sidebar() {
+export function AdminSidebar() {
+    const location = useLocation();
+
+    const isActive = (path: string) => {
+        return location.pathname.toLowerCase() === path.toLowerCase();
+    };
     return (
-        <Box w="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center">
-                
-                    <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
-                        <Link href='/Members'>
-                            <Button bg="whitesmoke" w='300px' leftIcon={<FaUserCog  />}>Manage accounts</Button>
-                        </Link>
-                        <Link>
-                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaDatabase  />}>System Data</Button>
-                        </Link>
-                        <Link href='/SendNotif'>
-                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaBell  />}>Send Notifications</Button>
-                        </Link>
-                        <Link>
-                            <Button variant="outline" color="whitesmoke" w='300px' _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser  />}>My Account</Button>
-                        </Link>
-                    </VStack>
-                {/* Footer */}
-                <Text position="absolute" bottom={5} left={5} fontSize="sm">Copyright Website 2024</Text>
+        <Box minW="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center" minH="100vh" // Minimum height to match the viewport height
+        overflowY="auto">
+            <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
+            <Link as={RouterLink} to='/Admin/Members'>
+                <Button bg={isActive('/Admin/Members') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Admin/Members') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                        leftIcon={<FaUserCog />} 
+                        color={isActive('/Admin/Members') ? '#2d4b12' : 'whitesmoke'} 
+                        w='300px'
+                        variant='outline'>
+                    Manage accounts
+                </Button>
+            </Link>
+            <Link as={RouterLink} to='/Admin/ViewTopics'>
+                <Button bg={isActive('/Admin/ViewTopics') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Admin/ViewTopics') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                        leftIcon={<FaBacon />} 
+                        color={isActive('/Admin/ViewTopics') ? '#2d4b12' : 'whitesmoke'} 
+                        w='300px'
+                        variant='outline'>View Topics</Button>
+                </Link>
+                <Link as={RouterLink} to='/Admin/SendNotif'>
+                <Button bg={isActive('/Admin/SendNotif') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/Admin/SendNotif') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                        leftIcon={<FaBell />} 
+                        color={isActive('/Admin/SendNotif') ? '#2d4b12' : 'whitesmoke'} 
+                        w='300px'
+                        variant='outline'>Send Notifications</Button>
+                </Link>
+                <Link as={RouterLink} to='/MyAccount'>
+                <Button bg={isActive('/MyAccount') ? 'whitesmoke' : 'transparent'} 
+                        _hover={isActive('/MyAccount') ? {} : { bg: '#fff', color: '#2d4b12' }} 
+                        leftIcon={<FaUser />} 
+                        color={isActive('/MyAccount') ? '#2d4b12' : 'whitesmoke'} 
+                        w='300px'
+                        variant='outline'>My Account</Button>
+                </Link>
+            </VStack>
+            {/* Footer */}
+            <Text position="absolute" bottom={5} left={5} fontSize="sm">Copyright Website 2024</Text>
         </Box>
-    )
+    );
 }
 
 function MemberTable() {
@@ -159,7 +188,8 @@ function MemberTable() {
                                 <Divider my={4} borderColor="#fff"/>
                                 <Tbody>
                                     {members.map((member) => (
-                                        <Tr bg="rgba(137, 188, 93, 0.2)" key={member.id} _hover={{bg: 'rgba(73,133,23,0.5)', boxShadow: {boxShadowColor}, transform: 'translateY(-2px)'}} transition="background-color 0.2s, box-shadow 0.2s, transform 0.2s">
+                                        <Tr bg="rgba(137, 188, 93, 0.2)" key={member.id} _hover={{bg: 'rgba(73,133,23,0.5)', boxShadow: {boxShadowColor}, transform: 'translateY(-2px)',
+                                        zIndex: 2}} transition="background-color 0.2s, box-shadow 0.2s, transform 0.2s" position='relative'>
                                             <Td>{member.id}</Td>
                                             <Td>{member.name}</Td>
                                             <Td>{member.email}</Td>
@@ -169,7 +199,7 @@ function MemberTable() {
                                             
                                             <Td>
                                                 <Menu>
-                                                    <MenuButton as={IconButton} icon={<FaEllipsisV />} variant="ghost" />
+                                                    <MenuButton as={IconButton} icon={<FaEllipsisV />} />
                                                     <MenuList>
                                                         <MenuItem>View</MenuItem>
                                                         <MenuItem>Update</MenuItem>
@@ -184,7 +214,7 @@ function MemberTable() {
                             </Table>
                         </Box>
                         {/* Button to add new member */}
-                        <Link href='/Add'>
+                        <Link href='/Admin/Add'>
                             <Button leftIcon={<FaUserPlus />} bg="#2d4b12" color='#fff' variant="outline" colorScheme='green' onClick={onOpen} mt={8} _hover={{ bg:"#fff", color:'#2d4b12'}} _focus={{ boxShadow: "none" }}>
                                 Add an account
                             </Button>
@@ -207,7 +237,7 @@ function Members() {
             <AdminHeader/>
             <Flex h="100vh" overflowY="hidden">
                 {/* Sidebar */}
-                <Sidebar/>
+                <AdminSidebar/>
 
                 {/* Main content */}
                 <MemberTable/>

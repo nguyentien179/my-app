@@ -22,13 +22,14 @@ import {
   ModalCloseButton,
   ModalBody,
   useDisclosure,
-  Checkbox
+  Checkbox,
 } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { AdminHeader } from '../admin/AdminHome.page';
 import { useNavigate } from 'react-router-dom';
 
-function CreatePost() {
+
+function CreateArticle() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageSrc, setImageSrc] = useState('');
@@ -57,8 +58,8 @@ function CreatePost() {
     e.preventDefault();
     // Form submission logic here
     toast({
-      title: 'Post created.',
-      description: "We've created your post for you.",
+      title: 'Article created.',
+      description: "We've created your article for you.",
       status: 'success',
       duration: 9000,
       isClosable: true,
@@ -75,7 +76,7 @@ function CreatePost() {
   };
   const formBackground = useColorModeValue('white', 'white.500.700');
   return (
-    <Box bgGradient="linear(to-t, #e1f5dd, rgba(44, 44, 44, 0.1))" minH="100vh" px={6}>
+    <Box bgGradient="linear(to-t, #e1f5dd, rgba(44, 44, 44, 0.1))" minH="100vh" px={6} overflowY='auto'>
       <AdminHeader />
       <VStack spacing={8} mx="auto" maxW="xl" px={6} mt={200} mb={200}>
         <Box
@@ -85,12 +86,12 @@ function CreatePost() {
           p={8}
           width={{ base: "90%", md: "768px" }} // Increased width for medium-sized devices and up
         >
-        <Heading as="h2" size="lg" mb={4} textColor="#426B1F" textAlign="center">Create a Post</Heading>
+        <Heading as="h2" size="lg" mb={4} textColor="#426B1F" textAlign="center">Create a Article</Heading>
 
         <Divider my={4} borderColor="#426B1F" width='100%'/>
 
         <VStack as="form" onSubmit={handleSubmit} spacing={6}>
-        <FormControl id="post-topic" isRequired>
+        <FormControl id="article-topic" isRequired>
           <FormLabel>Choose a topic</FormLabel>
             <Select placeholder="Select topic">
               {/* Populate with topics */}
@@ -100,8 +101,8 @@ function CreatePost() {
             </Select>
         </FormControl>
 
-        <FormControl id="post-title" isRequired>
-          <FormLabel>Post title</FormLabel>
+        <FormControl id="article-title" isRequired>
+          <FormLabel>Article title</FormLabel>
             <Input
               placeholder="Ex: Boxed water is better !!!"
               value={title}
@@ -109,7 +110,7 @@ function CreatePost() {
               size="lg" // Increased size for larger input
             />
           </FormControl>
-          <FormControl id="post-description" isRequired>
+          <FormControl id="article-description" isRequired>
             <FormLabel>Description</FormLabel>
             <Textarea
               placeholder="Description (200 words max)"
@@ -187,4 +188,4 @@ Etiam et dignissim dui. Suspendisse potenti. Phasellus in enim eu massa laoreet 
   );
 }
 
-export default CreatePost;
+export default CreateArticle;

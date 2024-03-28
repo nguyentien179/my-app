@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { LoginPageContainer, RegImageContainer, LoginFormContainer, Logo, Label, Input, SubmitButton, Divider, SocialIconsContainer, FooterLinksContainer, FooterLink, SignUpLink, SignUpText } from '../../components/Login.styles';
 import logo from '../../assets/logo.png'
 
@@ -38,7 +37,7 @@ const Register: React.FC = () => {
                 <Label htmlFor="password">Password</Label>
                 <Input type="password" id="password" name="password" placeholder="" required />
                 <Label htmlFor="confirmPassword">Confirm Password</Label>
-                <Input type="confirmPassword" id="confirmPassword" name="confirmPassword" placeholder="" required />
+                <Input type="password" id="confirmPassword" name="confirmPassword" placeholder="" required />
 
                 <SubmitButton type="submit">Create Account</SubmitButton>
 
@@ -50,39 +49,6 @@ const Register: React.FC = () => {
             </FooterLinksContainer>
         </LoginFormContainer>
       </LoginPageContainer>
-      // <div>
-      //   <form onSubmit={handleSubmit}>
-      //     <StyledInput
-      //       type="text"
-      //       name="fullName"
-      //       placeholder="Full name"
-      //       value={formData.fullName}
-      //       onChange={handleChange}
-      //     />
-      //     <StyledInput
-      //       type="email"
-      //       name="email"
-      //       placeholder="Email address"
-      //       value={formData.email}
-      //       onChange={handleChange}
-      //     />
-      //     <StyledInput
-      //       type="password"
-      //       name="password"
-      //       placeholder="Password"
-      //       value={formData.password}
-      //       onChange={handleChange}
-      //     />
-      //     <StyledInput
-      //       type="password"
-      //       name="confirmPassword"
-      //       placeholder="Confirm Password"
-      //       value={formData.confirmPassword}
-      //       onChange={handleChange}
-      //     />
-      //     <Button type="submit">Sign Up</Button>
-      //   </form>
-      // </div>
     );
   };
   

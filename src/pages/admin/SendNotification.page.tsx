@@ -1,30 +1,7 @@
 import { VStack, Button, Box, Text, Link, FormControl, FormLabel, Input, Heading, Textarea, CheckboxGroup, Stack, Checkbox, Flex, useColorModeValue} from "@chakra-ui/react";
 import { FaUserCog, FaDatabase, FaBell, FaUser } from "react-icons/fa";
 import { AdminHeader } from "./AdminHome.page";
-
-function Sidebar() {
-    return (
-        <Box w="350px" bg="#2d4b12" color="white" p={5} alignItems="center" justifyContent="center">
-                
-                    <VStack align="stretch" spacing={16} mt={20} alignItems="center" justifyContent="center">
-                        <Link href='/Members'>
-                            <Button variant="outline" color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} w='300px' leftIcon={<FaUserCog  />}>Manage accounts</Button>
-                        </Link>
-                        <Link>
-                            <Button variant="outline" w='300px' color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaDatabase  />}>System Data</Button>
-                        </Link>
-                        <Link href='/SendNotif'>
-                            <Button bg="whitesmoke" w='300px' leftIcon={<FaBell  />}>Send Notifications</Button>
-                        </Link>
-                        <Link>
-                            <Button variant="outline" w='300px' color="whitesmoke" _hover={{ color:'#2d4b12', bg: '#fff'}} leftIcon={<FaUser  />}>My Account</Button>
-                        </Link>
-                    </VStack>
-                {/* Footer */}
-                <Text position="absolute" bottom={5} left={5} fontSize="sm">Copyright Website 2024</Text>
-        </Box>
-    )
-}
+import { AdminSidebar } from "./Members.page";
 
 function SendNotif() {
     const handleFormSubmit = (e: any) => {
@@ -35,8 +12,8 @@ function SendNotif() {
       return (
       <>
       <AdminHeader/>
-      <Flex h="100vh" overflowY="hidden">
-        <Sidebar/>
+      <Flex>
+        <AdminSidebar/>
         <Box flex="1" p={6} display="flex" flexDirection="column"  bgGradient="linear(to-t, #e1f5dd, white)">
             <Heading as="h3" size="lg" mb={10} textColor="#83AD5F">Send notifications</Heading>
             <Box p={6} w="full" alignItems="center" justifyContent="center">

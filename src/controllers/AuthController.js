@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const Role = require("../models/role")
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
