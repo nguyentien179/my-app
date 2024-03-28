@@ -13,7 +13,8 @@ import {
     Tag,
     Button,
     Tooltip,
-    Link
+    Link,
+    HStack
   } from '@chakra-ui/react';
 import { AddIcon, ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 import { AdminHeader } from '../admin/AdminHome.page';
@@ -145,11 +146,19 @@ function Dashboard() {
       </Flex>
       <VStack>
         <Topics />
-        <Link href='/Student/CreateArticle' width='80%'>
-      <Button size="lg" width='100%' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
-        Make a post now!
-      </Button>
-    </Link>
+        <HStack spacing={4}>
+          <Link href='/Student/CreateArticle' width='50%'>
+            <Button size="lg" width='220px' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
+              Make a post now!
+            </Button>
+          </Link>
+          <Link href='/Student/MyArticles' width='50%'>
+            <Button size="lg" width='220px' bg="#426B1F" mt={5}  color='white' _hover={{ bg:"#fff", color:'#2d4b12'}}>
+              My articles
+            </Button>
+          </Link>
+        </HStack>
+
       </VStack>
         
     </Flex>
