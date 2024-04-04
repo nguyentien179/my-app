@@ -131,7 +131,6 @@ function CreateArticle() {
                 theme="snow"
                 value={description}
                 onChange={setDescription}
-                
               />
             </FormControl>
             <FormControl id="image">
