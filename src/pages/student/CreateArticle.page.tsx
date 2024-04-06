@@ -38,6 +38,21 @@ function CreateArticle() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ font: [] }],
+      [{ size: [] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+    ],
+  };
+
   const handleImageChange = (e: any) => {
     const file = e.target.files[0];
     if (file) {
@@ -131,6 +146,7 @@ function CreateArticle() {
                 theme="snow"
                 value={description}
                 onChange={setDescription}
+                modules={modules}
               />
             </FormControl>
             <FormControl id="image">
